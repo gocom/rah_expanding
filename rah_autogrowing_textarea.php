@@ -18,11 +18,11 @@
 	}
 
 class rah_autogrowing_textearea {
-	
+
 	/**
 	 * Constructor
 	 */
-	
+
 	public function __construct() {
 		register_callback(array($this, 'jquery'), 'admin_side', 'head_end');
 		register_callback(array($this, 'head'), 'admin_side', 'head_end');
@@ -33,21 +33,12 @@ class rah_autogrowing_textearea {
 	 */
 
 	public function head() {
-		
-		echo <<<EOF
-			<style type="text/css">
-				textarea#Body {
-					min-height: 200px;
-					height: 200px;
-					line-height: 16px;
-					max-height: 600px;
-				}
-			</style>
-EOF;
 
 		$js = <<<EOF
 			$(document).ready(function(){
-				$("textarea#Body").autogrow();
+				$('textarea').each(function() {
+					$(this).rah_TextAreaExpander($(this).height());
+				});
 			});
 EOF;
 
@@ -55,28 +46,85 @@ EOF;
 	}
 
 	/**
- 	 * Stores the jQuery plugin as base64 encoded string
+ 	 * Stores the TextAreaExpander jQuery plugin
  	 */
 
 	public function jquery() {
-		
-		/*
-			Auto Expanding Text Area (1.2.2)
-			by Chrys Bader (www.chrysbader.com)
-			chrysb@gmail.com
-		
-			Special thanks to:
-			Jake Chapa - jake@hybridstudio.com
-			John Resig - jeresig@gmail.com
-		
-			Copyright (c) 2008 Chrys Bader (www.chrysbader.com)
-			Dual licensed under the MIT (MIT-LICENSE.txt)
-			and GPL (GPL-LICENSE.txt) licenses.
-		*/
-		
-		$js = 'LyogDQoqDQoqCUNvcHlyaWdodHMgZm9yIHRoZSBmb2xsb3dpbmcgSmF2YXNjcmlwdCBjb2RlOg0KKg0KKglBdXRvIEV4cGFuZGluZyBUZXh0IEFyZWEgKDEuMi4yKQ0KKglieSBDaHJ5cyBCYWRlciAod3d3LmNocnlzYmFkZXIuY29tKQ0KKgljaHJ5c2JAZ21haWwuY29tDQoqDQoqCVNwZWNpYWwgdGhhbmtzIHRvOg0KKglKYWtlIENoYXBhIC0gamFrZUBoeWJyaWRzdHVkaW8uY29tDQoqCUpvaG4gUmVzaWcgLSBqZXJlc2lnQGdtYWlsLmNvbQ0KKg0KKiAJQ29weXJpZ2h0IChjKSAyMDA4IENocnlzIEJhZGVyICh3d3cuY2hyeXNiYWRlci5jb20pDQoqIAlEdWFsIGxpY2Vuc2VkIHVuZGVyIHRoZSBNSVQgKE1JVC1MSUNFTlNFLnR4dCkNCiogCWFuZCBHUEwgKEdQTC1MSUNFTlNFLnR4dCkgbGljZW5zZXMuDQoqDQoqLw0KDQooZnVuY3Rpb24oalF1ZXJ5KSB7DQoJdmFyIHNlbGYgPSBudWxsOw0KCWpRdWVyeS5mbi5hdXRvZ3JvdyA9IGZ1bmN0aW9uKG8pew0KCQlyZXR1cm4gdGhpcy5lYWNoKGZ1bmN0aW9uKCkgew0KCQkJbmV3IGpRdWVyeS5hdXRvZ3Jvdyh0aGlzLCBvKTsNCgkJfSk7DQoJfTsNCglqUXVlcnkuYXV0b2dyb3cgPSBmdW5jdGlvbiAoZSwgbyl7DQoJCXRoaXMub3B0aW9ucwkJICAJPSBvIHx8IHt9Ow0KCQl0aGlzLmR1bW15CQkJICAJPSBudWxsOw0KCQl0aGlzLmludGVydmFsCSAJICAJPSBudWxsOw0KCQl0aGlzLmxpbmVfaGVpZ2h0CSAgCT0gdGhpcy5vcHRpb25zLmxpbmVIZWlnaHQgfHwgcGFyc2VJbnQoalF1ZXJ5KGUpLmNzcygnbGluZS1oZWlnaHQnKSk7DQoJCXRoaXMubWluX2hlaWdodAkJICAJPSB0aGlzLm9wdGlvbnMubWluSGVpZ2h0IHx8IHBhcnNlSW50KGpRdWVyeShlKS5jc3MoJ21pbi1oZWlnaHQnKSk7DQoJCXRoaXMubWF4X2hlaWdodAkJICAJPSB0aGlzLm9wdGlvbnMubWF4SGVpZ2h0IHx8IHBhcnNlSW50KGpRdWVyeShlKS5jc3MoJ21heC1oZWlnaHQnKSk7Ow0KCQl0aGlzLnRleHRhcmVhCQkgIAk9IGpRdWVyeShlKTsNCgkJaWYgKHRoaXMubGluZV9oZWlnaHQgPT0gTmFOKXsNCgkJCXRoaXMubGluZV9oZWlnaHQgPSAwOw0KCQl9DQoJCWlmICh0aGlzLm1pbl9oZWlnaHQgPT0gTmFOIHx8IHRoaXMubWluX2hlaWdodCA9PSAwKXsNCgkJCXRoaXMubWluX2hlaWdodCA9PSB0aGlzLnRleHRhcmVhLmhlaWdodCgpOwkNCgkJfQ0KCQl0aGlzLmluaXQoKTsNCgl9Ow0KCWpRdWVyeS5hdXRvZ3Jvdy5mbiA9IGpRdWVyeS5hdXRvZ3Jvdy5wcm90b3R5cGUgPSB7DQoJCWF1dG9ncm93OiAnMS4yLjInDQoJfTsNCiAJalF1ZXJ5LmF1dG9ncm93LmZuLmV4dGVuZCA9IGpRdWVyeS5hdXRvZ3Jvdy5leHRlbmQgPSBqUXVlcnkuZXh0ZW5kOw0KCWpRdWVyeS5hdXRvZ3Jvdy5mbi5leHRlbmQoew0KCQlpbml0OiBmdW5jdGlvbigpIHsJCQkNCgkJCXZhciBzZWxmID0gdGhpczsJCQkNCgkJCXRoaXMudGV4dGFyZWEuY3NzKHtvdmVyZmxvdzogJ2hpZGRlbicsIGRpc3BsYXk6ICdibG9jayd9KTsNCgkJCXRoaXMudGV4dGFyZWEuYmluZCgnZm9jdXMnLCBmdW5jdGlvbigpIHsgc2VsZi5zdGFydEV4cGFuZCgpIH0gKS5iaW5kKCdibHVyJywgZnVuY3Rpb24oKSB7IHNlbGYuc3RvcEV4cGFuZCgpIH0pOw0KCQkJdGhpcy5jaGVja0V4cGFuZCgpOwkNCgkJfSwNCgkJc3RhcnRFeHBhbmQ6IGZ1bmN0aW9uKCkgewkJCQkNCgkJICB2YXIgc2VsZiA9IHRoaXM7DQoJCQl0aGlzLmludGVydmFsID0gd2luZG93LnNldEludGVydmFsKGZ1bmN0aW9uKCkge3NlbGYuY2hlY2tFeHBhbmQoKX0sIDQwMCk7DQoJCX0sDQoJCXN0b3BFeHBhbmQ6IGZ1bmN0aW9uKCkgew0KCQkJY2xlYXJJbnRlcnZhbCh0aGlzLmludGVydmFsKTsJDQoJCX0sDQoJCWNoZWNrRXhwYW5kOiBmdW5jdGlvbigpIHsNCgkJCWlmICh0aGlzLmR1bW15ID09IG51bGwpew0KCQkJCXRoaXMuZHVtbXkgPSBqUXVlcnkoJzxkaXY+PC9kaXY+Jyk7DQoJCQkJdGhpcy5kdW1teS5jc3Moew0KCQkJCQknZm9udC1zaXplJyAgOiB0aGlzLnRleHRhcmVhLmNzcygnZm9udC1zaXplJyksDQoJCQkJCSdmb250LWZhbWlseSc6IHRoaXMudGV4dGFyZWEuY3NzKCdmb250LWZhbWlseScpLA0KCQkJCQknd2lkdGgnICAgICAgOiB0aGlzLnRleHRhcmVhLmNzcygnd2lkdGgnKSwNCgkJCQkJJ3BhZGRpbmcnICAgIDogdGhpcy50ZXh0YXJlYS5jc3MoJ3BhZGRpbmcnKSwNCgkJCQkJJ2xpbmUtaGVpZ2h0JzogdGhpcy5saW5lX2hlaWdodCArICdweCcsDQoJCQkJCSdvdmVyZmxvdy14JyA6ICdoaWRkZW4nLA0KCQkJCQkncG9zaXRpb24nICAgOiAnYWJzb2x1dGUnLA0KCQkJCQkndG9wJyAgICAgICAgOiAwLA0KCQkJCQknbGVmdCcJCSA6IC05OTk5DQoJCQkJfSkuYXBwZW5kVG8oJ2JvZHknKTsNCgkJCX0NCgkJCXZhciBodG1sID0gdGhpcy50ZXh0YXJlYS52YWwoKS5yZXBsYWNlKC8oPHw+KS9nLCAnJyk7DQoJCQlpZiAoJC5icm93c2VyLm1zaWUpew0KCQkJCWh0bWwgPSBodG1sLnJlcGxhY2UoL1xuL2csICc8QlI+bmV3Jyk7DQoJCQl9ZWxzZXsNCgkJCQlodG1sID0gaHRtbC5yZXBsYWNlKC9cbi9nLCAnPGJyPm5ldycpOw0KCQkJfQ0KCQkJaWYgKHRoaXMuZHVtbXkuaHRtbCgpICE9IGh0bWwpew0KCQkJCXRoaXMuZHVtbXkuaHRtbChodG1sKTsNCgkJCQlpZiAodGhpcy5tYXhfaGVpZ2h0ID4gMCAmJiAodGhpcy5kdW1teS5oZWlnaHQoKSArIHRoaXMubGluZV9oZWlnaHQgPiB0aGlzLm1heF9oZWlnaHQpKXsNCgkJCQkJdGhpcy50ZXh0YXJlYS5jc3MoJ292ZXJmbG93LXknLCAnYXV0bycpOwkNCgkJCQl9DQoJCQkJZWxzZXsNCgkJCQkJdGhpcy50ZXh0YXJlYS5jc3MoJ292ZXJmbG93LXknLCAnaGlkZGVuJyk7DQoJCQkJCWlmICh0aGlzLnRleHRhcmVhLmhlaWdodCgpIDwgdGhpcy5kdW1teS5oZWlnaHQoKSArIHRoaXMubGluZV9oZWlnaHQgfHwgKHRoaXMuZHVtbXkuaGVpZ2h0KCkgPCB0aGlzLnRleHRhcmVhLmhlaWdodCgpKSl7CQ0KCQkJCQkJdGhpcy50ZXh0YXJlYS5hbmltYXRlKHtoZWlnaHQ6ICh0aGlzLmR1bW15LmhlaWdodCgpICsgdGhpcy5saW5lX2hlaWdodCkgKyAncHgnfSwgMTAwKTsJDQoJCQkJCX0NCgkJCQl9DQoJCQl9DQoJCX0NCgl9KTsNCn0pKGpRdWVyeSk7';
-		
-		echo script_js(base64_decode($js));
+
+		$js = <<<EOF
+			/**
+			 * TextAreaExpander plugin for jQuery
+			 * v1.0
+			 * Expands or contracts a textarea height depending on the
+			 * quatity of content entered by the user in the box.
+			 *
+			 * By Craig Buckler, Optimalworks.net
+			 *
+			 * As featured on SitePoint.com:
+			 * http://www.sitepoint.com/blogs/2009/07/29/build-auto-expanding-textarea-1/
+			 *
+			 * Please use as you wish at your own risk.
+			 */
+			
+			(function($) {
+			
+				// jQuery plugin definition
+				$.fn.rah_TextAreaExpander = function(minHeight, maxHeight) {
+			
+					var hCheck = !($.browser.msie || $.browser.opera);
+			
+					// resize a textarea
+					function ResizeTextarea(e) {
+			
+						// event or initialize element?
+						e = e.target || e;
+			
+						// find content length and box width
+						var vlen = e.value.length, ewidth = e.offsetWidth;
+						if (vlen != e.valLength || ewidth != e.boxWidth) {
+			
+							if (hCheck && (vlen < e.valLength || ewidth != e.boxWidth)) e.style.height = "0px";
+							var h = Math.max(e.expandMin, Math.min(e.scrollHeight, e.expandMax));
+			
+							e.style.overflow = (e.scrollHeight > h ? "auto" : "hidden");
+							e.style.height = h + "px";
+			
+							e.valLength = vlen;
+							e.boxWidth = ewidth;
+						}
+			
+						return true;
+					};
+			
+					// initialize
+					this.each(function() {
+			
+						// is a textarea?
+						if (this.nodeName.toLowerCase() != "textarea") return;
+			
+						// set height restrictions
+						var p = this.className.match(/expand(\d+)\-*(\d+)*/i);
+						this.expandMin = minHeight || (p ? parseInt('0'+p[1], 10) : 0);
+						this.expandMax = maxHeight || (p ? parseInt('0'+p[2], 10) : 99999);
+			
+						// initial resize
+						ResizeTextarea(this);
+			
+						// zero vertical padding and add events
+						if (!this.Initialized) {
+							this.Initialized = true;
+							$(this).css("padding-top", 0).css("padding-bottom", 0);
+							$(this).bind("keyup", ResizeTextarea).bind("focus", ResizeTextarea);
+						}
+					});
+			
+					return this;
+				};
+			
+			})(jQuery);
+EOF;
+
+		echo script_js($js);
 	}
 }
 
