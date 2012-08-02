@@ -1,20 +1,8 @@
 h1. rah_autogrowing_textarea
 
-p. Auto-growing textareas to Textpattern's backend. With the plugin, all backend textareas can be adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines.
+p. Automatically expanding textareas for "Textpattern CMS's":http://textpattern.com backend. The plugin makes so that all admin-side textareas are adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines. Rah_autogrowing_textarea uses the jQuery plugin "TextAreaExpander":http://blogs.sitepointstatic.com/examples/tech/textarea-expander/index.html by "Craig Buckler":http://www.optimalworks.net/.
 
-h2. Intro and description
-
-p. An admin-side plugin that brings auto-growing textareas to Textpattern's backend. Fields will automatically resize while typing, depending on the amount of content. Uses the jQuery plugin "Auto-grown Textarea":http://www.aclevercookie.com/demos/autogrow_textarea.html by "Chrys Bader":http://www.chrysbader.com/.
-
-h2. Requirements
-
-p. rah_autogrowing_textarea's minimum requirements:
-
-* Textpattern 4.4.1+
-* Textpattern with jQuery version 1.2.2+
-* Client browser should be modern and, also, should be supported by jQuery.
-
-h2. Installation and usage
+h2. Installing
 
 p. The general simple behavior stands: paste plugin code to the plugin installer textarea and run the automatic setup. Then just activate the plugin and it's ready, textareas are auto-growing.
 
@@ -22,7 +10,10 @@ h2. Changelog
 
 h3. Version 0.7 - upcoming
 
-* Dropped preferences panel.
+* Changed: now affects all admin-side textareas by default.
+* Removed: Dropped preferences panel and extra options. Slims the installation significally.
+* Replaced Chrys Bader's Auto-grown Textarea with "Craig Buckler's":http://www.optimalworks.net/ "TextAreaExpander":http://blogs.sitepointstatic.com/examples/tech/textarea-expander/index.html.
+* Is now compatible with Textpattern v4.5.0.
 
 h3. Version 0.6 - 2011/07/26
 
