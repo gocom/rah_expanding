@@ -42,6 +42,14 @@ p. Defining (and hooking) the textarea is done by choosing the backend page wher
 
 h3(#changelog). Changelog
 
+p. *Version 0.7*
+
+* Improved: Makes sure values saved via the editor indeed are integers.
+* Improved: Escapes element name passed to CSS styles.
+* Changed: Now uses Textpattern's core's @script_js()@ and @escape_js()@ functions.
+* Removed: Documentation link.
+* Now requires Textpattern version 4.4.0 or newer.
+
 p. *Version 0.6*
 
 * Added: CSRF (session riding) protection using Textpattern's new core functions introduced in v4.4.1.

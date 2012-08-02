@@ -1,7 +1,7 @@
 <?php	##################
 	#
 	#	rah_autogrowing_textarea-plugin for Textpattern
-	#	version 0.6
+	#	version 0.7
 	#	by Jukka Svahn
 	#	http://rahforum.biz
 	#
@@ -86,7 +86,7 @@
 			if(!isset($textarray['rah_autogrowing_textarea_'.$string]))
 				$textarray['rah_autogrowing_textarea_'.$string] = $translation;
 		
-		$version = '0.6';
+		$version = '0.7';
 		
 		$current = isset($prefs['rah_autogrowing_textarea_version']) ?
 			$prefs['rah_autogrowing_textarea_version'] : 'base';
@@ -188,42 +188,31 @@
 		
 		foreach($rs as $a){
 			extract($a);
-			
-			$js[] = 'textarea#'.$name;
+			$js[] = 'textarea#'.escape_js($name);
 			$css[] = 
-				'			textarea#'.$name.' {'.n.
-				'				min-height: '.$min_height.'px;'.n.
-				'				height: '.$height.'px;'.n.
-				'				line-height: '.$line_height.'px;'.n.
-				'				max-height: '.$max_height.'px;'.n.
-				'			}';
+				'	textarea#'.htmlspecialchars($name).' {'.n.
+				'		min-height: '.$min_height.'px;'.n.
+				'		height: '.$height.'px;'.n.
+				'		line-height: '.$line_height.'px;'.n.
+				'		max-height: '.$max_height.'px;'.n.
+				'	}';
 		}
-		
-		$js = implode(',',$js);
-		$css = implode(n,$css);
-		$hu = hu;
+
 		$jquery = rah_autogrowing_textarea_js();
 		
 		echo 
-			<<<EOF
-
-				<script type="text/javascript">
-					<!--
-					{$jquery}
-					-->
-				</script>
-				<script type="text/javascript">
-					<!--
-					$(document).ready (function() {
-						$('{$js}').autogrow();
-					});
-					-->
-				</script>
-				<style type="text/css">
-					{$css}
-				</style>
-EOF;
-		
+			n.
+			'<style type="text/css">'.n.
+				implode(n,$css).n.
+			'</style>'.
+			
+			script_js(
+				$jquery
+			).
+			
+			script_js(
+				'$(document).ready(function(){$("'.implode(',',$js).'").autogrow();});'
+			);
 	}
 
 /**
@@ -460,24 +449,24 @@ EOF;
 				'active',
 				'page'
 			);
+
+		extract(doSlash(doArray(psa(
+			$fields
+		),'trim')));
 		
-		
-		
-		extract(
-			doSlash(
-				psa(
-					$fields
-				)
-			)
-		);
+		extract(doArray(psa(array(
+			'id',
+			'min_height',
+			'height',
+			'line_height',
+			'max_height'
+		)), 'intval'));
 		
 		foreach($fields as $field) {
-			
-			if($field != 'id' && !trim($$field)) {
+			if($field != 'id' && !$$field) {
 				rah_autogrowing_textarea_edit('rah_autogrowing_textarea_required_fields');
 				return;
 			}
-			
 		}
 		
 		if($id) {
@@ -511,7 +500,7 @@ EOF;
 				return;
 			}
 			
-			rah_autogrowing_textarea_edit('rah_autogrowing_textarea_updated');
+			rah_autogrowing_textarea_list('rah_autogrowing_textarea_updated');
 			return;
 		}
 		
@@ -590,7 +579,6 @@ EOF;
 			'	<p class="rah_ui_nav">'.
 				'<span class="rah_ui_sep">&#187;</span> <a href="?event='.$event.'">'.gTxt('rah_autogrowing_textarea_main').'</a> '.
 				'<span class="rah_ui_sep">&#187;</span> <strong><a href="?event='.$event.'&amp;step=edit">'.gTxt('rah_autogrowing_textarea_create_new').'</a></strong> '.
-				'<span class="rah_ui_sep">&#187;</span> <a href="?event=plugin&amp;step=plugin_help&amp;name=rah_autogrowing_textarea">'.gTxt('rah_autogrowing_textarea_documentation').'</a>'.
 			'</p>'.n.
 			
 			$out.n.
