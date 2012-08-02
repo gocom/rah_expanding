@@ -1,15 +1,17 @@
-<?php	##################
-	#
-	#	rah_autogrowing_textarea-plugin for Textpattern
-	#	version 0.7
-	#	by Jukka Svahn
-	#	http://rahforum.biz
-	#
-	#	Copyright (C) 2011 Jukka Svahn <http://rahforum.biz>
-	#	Licensed under GNU Genral Public License version 2
-	#	http://www.gnu.org/licenses/gpl-2.0.html
-	#
-	###################
+<?php
+
+/**
+ * Rah_autogrowing_textarea plugin for Textpattern CMS.
+ *
+ * @author Jukka Svahn
+ * @date 2008-
+ * @license GNU GPLv2
+ * @link http://rahforum.biz/plugins/rah_autogrowing_textarea
+ * 
+ * Copyright (C) 2008 Jukka Svahn <http://rahforum.biz>
+ * Licensed under GNU Genral Public License version 2
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ */
 
 	if(@txpinterface == 'admin') {
 		rah_autogrowing_textarea_install();
