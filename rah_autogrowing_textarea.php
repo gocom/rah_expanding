@@ -25,14 +25,14 @@ class rah_autogrowing_textearea {
 
 	public function __construct() {
 		register_callback(array($this, 'jquery'), 'admin_side', 'head_end');
-		register_callback(array($this, 'head'), 'admin_side', 'head_end');
+		register_callback(array($this, 'initialize'), 'admin_side', 'head_end');
 	}
 
 	/**
 	 * Adds the required scripts to the <head>
 	 */
 
-	public function head() {
+	public function initialize() {
 
 		$js = <<<EOF
 			$(document).ready(function(){
