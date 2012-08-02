@@ -1,9 +1,9 @@
 h1. rah_autogrowing_textarea
 
-p. Autogrowing textareas to Textpattern's backend. With the plugin, all backend textareas can be adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines. The plugin also includes simple admin panel under Extensions -tab, where you can set which textareas will grow, plus set some additional growing preferences.
+p. Auto-growing textareas to Textpattern's backend. With the plugin, all backend textareas can be adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines. The plugin also includes simple admin panel under Extensions -tab, where you can set which textareas will grow, plus set some additional growing preferences.
 
-* Version: 0.3.3
-* Updated: 2009/06/03 09:50 AM GMT+3
+* Version: 0.4
+* Updated: 2010/11/11 3:25 AM UTC
 
 h3. Table of Contents
 
@@ -15,7 +15,7 @@ h3. Table of Contents
 
 h3(#intro-and-description). Intro and description
 
-p. An adminside plugin that brings autogrowing textareas to Textpattern's backend. Fields will automatically resize while typing, depending on the amount of content. Uses the jQuery plugin "Autogrown Textarea":http://www.aclevercookie.com/demos/autogrow_textarea.html by "Chrys Bader.":http://www.chrysbader.com
+p. An admin-side plugin that brings auto-growing textareas to Textpattern's backend. Fields will automatically resize while typing, depending on the amount of content. Uses the jQuery plugin "Auto-grown Textarea":http://www.aclevercookie.com/demos/autogrow_textarea.html by "Chrys Bader":http://www.chrysbader.com/.
 
 h3(#list-of-features). List of features
 
@@ -28,23 +28,34 @@ h3(#requirements). Requirements
 
 p. rah_autogrowing_textarea's minimum requirements:
 
-* Textpattern 4.0.5+
+* Textpattern 4.0.7+
 * Textpattern with jQuery version 1.2.2+
 * Client browser should be modern and, also, should be supported by jQuery.
 
 p. Recommended:
 
-* Textpattern 4.0.8+
+* Textpattern 4.2.0+
 
 h3(#installation-and-usage). Installation and usage
 
-p. The general simple behavior stands: paste plugin code to the plugin installer textarea and run the automatic setup. Then just activate the plugin and it's ready, textareas are autogrowing.
+p. The general simple behavior stands: paste plugin code to the plugin installer textarea and run the automatic setup. Then just activate the plugin and it's ready, textareas are auto-growing.
 
-p. Under Extensions tab you will find a subpage called _Autogrowing Textareas_ where you can set all sort of settings and create a so called _textarea callbacks_ which will basically hook the autogrowing function to the specific textarea.
+p. Under Extensions tab you will find a subpage called _Autogrowing Textareas_ where you can set all sort of settings and create a so called _textarea callbacks_ which will basically hook the auto-growing function to the specific textarea.
 
-p. Defining (and hooking) the Textarea is done by choosing the backend page where the Textarea exists and the XHTML ID (ie. body, excerpt etc.) which is defined for the textarea. The autogrowed textarea can either be plugin's (if plugin uses valid code methods) or Textpattern's core textarea. Any valid textarea with ID (located under valid @event@ -get callback) can be made to autogrow with users own likes.
+p. Defining (and hooking) the textarea is done by choosing the backend page where the textarea exists and the XHTML ID (for example body, excerpt etc.) which is defined for the textarea. The auto-grown textarea can either be plugin's or Textpattern's core textarea. Any valid textarea with ID (located under valid @event@ -get callback) can be made to auto-grow.
 
 h3(#changelog). Changelog
+
+p. *Version 0.4*
+
+* Added: now prompts users if required fields are left empty when creating new rules.
+* Interface improvements: removed unnecessary table-layouts, moved all CSS lines to @<head>@.
+* Changed: plugin type to the newer _Admin only_.
+* Changed: tries to run the installer only if there are no preferences available.
+* Changed: now uses different method for building list of available events.
+* Changed: shows events/panels label instead of name in the listings.
+* Changed: preferences pane shows multiedit controls only when something is selected. As seen in "rah_post_versions":http://rahforum.biz/plugins/rah_post_versions.
+* Removed default values from the installer SQL.
 
 p. *Version 0.3.3*
 
@@ -53,17 +64,17 @@ p. *Version 0.3.3*
 
 p. *Version 0.3.2*
 
-* Fixed: Removed lost child sceleton function; Fixes error: @Fatal error: Call to undefined function rah_plugin_download_install()@.
+* Fixed: Removed lost child skeleton function; Fixes error: @Fatal error: Call to undefined function rah_plugin_download_install()@.
 
 p. *Version 0.3*
 
 * Added: Admin interface under Extensions -tab.
-* Added: Able to define which textareas autogrow.
+* Added: Able to define which textareas auto-grow.
 * Added: Max. height limit, line height and other optional style settings are now adjustable.
 
 p. *Version 0.2*
 
-* Changed @line-height@ from ems to pixels: fixes the small-to-smaller-by-line-to-line @line-height@-bug that occurs in some browsers that cause some problems with textareas.
+* Changed @line-height@ from EMs to pixels: fixes the small-to-smaller-by-line-to-line @line-height@-bug that occurs in some browsers that cause some problems with textareas.
 
 p. *Version 0.1*
 
