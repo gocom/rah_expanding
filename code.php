@@ -1,9 +1,13 @@
 <?php	##################
 	#
 	#	rah_autogrowing_textarea-plugin for Textpattern
-	#	version 0.5
+	#	version 0.6
 	#	by Jukka Svahn
 	#	http://rahforum.biz
+	#
+	#	Copyright (C) 2011 Jukka Svahn <http://rahforum.biz>
+	#	Licensed under GNU Genral Public License version 2
+	#	http://www.gnu.org/licenses/gpl-2.0.html
 	#
 	###################
 
@@ -82,10 +86,12 @@
 			if(!isset($textarray['rah_autogrowing_textarea_'.$string]))
 				$textarray['rah_autogrowing_textarea_'.$string] = $translation;
 		
-		if(
-			isset($prefs['rah_autogrowing_textarea_version']) &&
-			$prefs['rah_autogrowing_textarea_version'] == '0.5'
-		)
+		$version = '0.6';
+		
+		$current = isset($prefs['rah_autogrowing_textarea_version']) ?
+			$prefs['rah_autogrowing_textarea_version'] : 'base';
+		
+		if($current == $version)
 			return;
 		
 		/*
@@ -121,7 +127,7 @@
 			Inserts the default rows
 		*/
 		
-		if(safe_count('rah_autogrowing_textarea',"name='excerpt'") == 0) {
+		if($current != 'base' && safe_count('rah_autogrowing_textarea',"name='excerpt'") == 0) {
 			safe_insert(
 				"rah_autogrowing_textarea",
 				"name='excerpt',
@@ -134,7 +140,7 @@
 				page='article'"
 			);
 		}
-		if(safe_count('rah_autogrowing_textarea',"name='body'") == 0) {
+		if($current != 'base' && safe_count('rah_autogrowing_textarea',"name='body'") == 0) {
 			safe_insert(
 				"rah_autogrowing_textarea",
 				"name='body',
@@ -152,7 +158,8 @@
 			Set version
 		*/
 		
-		set_pref('rah_autogrowing_textarea_version','0.5','rah_autext',2,'',0);
+		set_pref('rah_autogrowing_textarea_version',$version,'rah_autext',2,'',0);
+		$prefs['rah_autogrowing_textarea_version'] = $version;
 	}
 
 /**
@@ -227,15 +234,19 @@ EOF;
 		require_privs('rah_autogrowing_textarea');
 		global $step;
 		
-		if($step && in_array($step,array(
-			'save',
-			'delete',
-			'edit'
-		))) {
-			$func = 'rah_autogrowing_textarea_' . $step;
-			$func();
-		}
-		else rah_autogrowing_textarea_list();
+		$steps = 
+			array(
+				'list' => false,
+				'edit' => false,
+				'save' => true,
+				'delete' => true
+			);
+		
+		if(!$step || !bouncer($step, $steps))
+			$step = 'list';
+		
+		$func = 'rah_autogrowing_textarea_' . $step;
+		$func();
 	}
 
 /**
@@ -575,6 +586,7 @@ EOF;
 			n.
 			'<form method="post" action="index.php" id="rah_autogrowing_textarea_container" class="rah_ui_container">'.n.
 			'	<input type="hidden" name="event" value="'.$event.'" />'.n.
+			'	<input type="hidden" name="_txp_token" value="'.form_token().'" />'.n.
 			'	<p class="rah_ui_nav">'.
 				'<span class="rah_ui_sep">&#187;</span> <a href="?event='.$event.'">'.gTxt('rah_autogrowing_textarea_main').'</a> '.
 				'<span class="rah_ui_sep">&#187;</span> <strong><a href="?event='.$event.'&amp;step=edit">'.gTxt('rah_autogrowing_textarea_create_new').'</a></strong> '.
@@ -724,7 +736,7 @@ EOF;
 	}
 
 /**
-	Stores the jQuery plugin in base64 encoded string
+	Stores the jQuery plugin as base64 encoded string
 */
 
 	function rah_autogrowing_textarea_js() {
@@ -758,5 +770,4 @@ EOF;
 			'	<a href="?event=rah_autogrowing_textarea">'.gTxt('continue').'</a>'.n.
 			'</p>';
 	}
-
 ?>

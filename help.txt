@@ -1,9 +1,9 @@
 h1. rah_autogrowing_textarea
 
-p. Auto-growing textareas to Textpattern's backend. With the plugin, all backend textareas can be adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines. The plugin also includes simple admin panel under Extensions -tab, where you can set which textareas will grow, plus set some additional growing preferences.
+p. Auto-growing textareas to Textpattern's backend. With the plugin, all backend textareas can be adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines. The plugin also includes simple admin panel under Extensions tab, where you can set which textareas will grow, plus set some additional growing preferences.
 
-* Version: 0.5
-* Updated: 2011/06/05 3:55 PM UTC
+* Version: 0.6
+* Updated: 2011/07/26 11:00 AM UTC
 
 h3. Table of Contents
 
@@ -28,13 +28,9 @@ h3(#requirements). Requirements
 
 p. rah_autogrowing_textarea's minimum requirements:
 
-* Textpattern 4.0.7+
+* Textpattern 4.4.1+
 * Textpattern with jQuery version 1.2.2+
 * Client browser should be modern and, also, should be supported by jQuery.
-
-p. Recommended:
-
-* Textpattern 4.2.0+
 
 h3(#installation-and-usage). Installation and usage
 
@@ -45,6 +41,13 @@ p. Under Extensions tab you will find a subpage called _Autogrowing Textareas_ w
 p. Defining (and hooking) the textarea is done by choosing the backend page where the textarea exists and the XHTML ID (for example body, excerpt etc.) which is defined for the textarea. The auto-grown textarea can either be plugin's or Textpattern's core textarea. Any valid textarea with ID (located under valid @event@ -get callback) can be made to auto-grow.
 
 h3(#changelog). Changelog
+
+p. *Version 0.6*
+
+* Added: CSRF (session riding) protection using Textpattern's new core functions introduced in v4.4.1.
+* Fixed: only adds default definition rows to the database when plugin hasn't been installed before, or when the old installed version was v0.4 or older.
+* Changed: set temporary version number after installer has been run. Prevents possibility of running the installer twice.
+* Now requires Textpattern version 4.4.1 or newer.
 
 p. *Version 0.5*
 
