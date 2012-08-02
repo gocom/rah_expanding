@@ -34,23 +34,6 @@ class rah_autogrowing_textearea {
 
 	public function head() {
 		
-		//global $event;
-		
-		/*$css = $js = array();
-		
-		foreach($rs as $a){
-			extract($a);
-			$js[] = 'textarea#'.escape_js($name);
-			$css[] = 
-				'	textarea#'.htmlspecialchars($name).' {'.n.
-				'		min-height: '.$min_height.'px;'.n.
-				'		height: '.$height.'px;'.n.
-				'		line-height: '.$line_height.'px;'.n.
-				'		max-height: '.$max_height.'px;'.n.
-				'	}';
-		}
-		*/
-		
 		echo <<<EOF
 			<style type="text/css">
 				textarea#Body {
