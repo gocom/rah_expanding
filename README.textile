@@ -1,17 +1,10 @@
 h1. rah_autogrowing_textarea
 
-p. Auto-growing textareas to Textpattern's backend. With the plugin, all backend textareas can be adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines. The plugin also includes simple admin panel under Extensions tab, where you can set which textareas will grow, plus set some additional growing preferences.
+p. Auto-growing textareas to Textpattern's backend. With the plugin, all backend textareas can be adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines.
 
 h2. Intro and description
 
 p. An admin-side plugin that brings auto-growing textareas to Textpattern's backend. Fields will automatically resize while typing, depending on the amount of content. Uses the jQuery plugin "Auto-grown Textarea":http://www.aclevercookie.com/demos/autogrow_textarea.html by "Chrys Bader":http://www.chrysbader.com/.
-
-h2. List of features
-
-* Simple setup: just run the automatic plugin setup and activate.
-* Automatically growing textareas to Textpattern's backend.
-* Outputs valid XHTML, and tiny and clean JavaScript code.
-* A simple admin interface under Extensions for setting styles and preferences.
 
 h2. Requirements
 
@@ -25,19 +18,11 @@ h2. Installation and usage
 
 p. The general simple behavior stands: paste plugin code to the plugin installer textarea and run the automatic setup. Then just activate the plugin and it's ready, textareas are auto-growing.
 
-p. Under Extensions tab you will find a subpage called _Autogrowing Textareas_ where you can set all sort of settings and create a so called _textarea callbacks_ which will basically hook the auto-growing function to the specific textarea.
-
-p. Defining (and hooking) the textarea is done by choosing the backend page where the textarea exists and the XHTML ID (for example body, excerpt etc.) which is defined for the textarea. The auto-grown textarea can either be plugin's or Textpattern's core textarea. Any valid textarea with ID (located under valid @event@ -get callback) can be made to auto-grow.
-
 h2. Changelog
 
 h3. Version 0.7 - upcoming
 
-* Improved: Makes sure values saved via the editor indeed are integers.
-* Improved: Escapes element name passed to CSS styles.
-* Changed: Now uses Textpattern's core's @script_js()@ and @escape_js()@ functions.
-* Removed: Documentation link.
-* Now requires Textpattern version 4.4.0 or newer.
+* Dropped preferences panel.
 
 h3. Version 0.6 - 2011/07/26
 
