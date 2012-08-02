@@ -2,14 +2,6 @@ h1. rah_autogrowing_textarea
 
 p. Auto-growing textareas to Textpattern's backend. With the plugin, all backend textareas can be adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines. The plugin also includes simple admin panel under Extensions tab, where you can set which textareas will grow, plus set some additional growing preferences.
 
-h3. Table of Contents
-
-* "Intro and description":#intro-and-description
-* "List of features":#list-of-features
-* "Requirements":#requirements
-* "Installation and usage":#installation-and-usage
-* "Changelog":#changelog
-
 h2. Intro and description
 
 p. An admin-side plugin that brings auto-growing textareas to Textpattern's backend. Fields will automatically resize while typing, depending on the amount of content. Uses the jQuery plugin "Auto-grown Textarea":http://www.aclevercookie.com/demos/autogrow_textarea.html by "Chrys Bader":http://www.chrysbader.com/.
