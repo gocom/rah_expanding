@@ -36,8 +36,8 @@ class rah_autogrowing_textearea {
 
 		$js = <<<EOF
 			$(document).ready(function(){
-				$('textarea').each(function() {
-					$(this).rah_TextAreaExpander($(this).height());
+				$('textarea:not(.rah_autogrowing_textearea_disable)').each(function() {
+					$(this).rah_TextAreaExpander($(this).height(), 99999);
 				});
 			});
 EOF;
