@@ -2,8 +2,8 @@ h1. rah_autogrowing_textarea
 
 p. Auto-growing textareas to Textpattern's backend. With the plugin, all backend textareas can be adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines. The plugin also includes simple admin panel under Extensions -tab, where you can set which textareas will grow, plus set some additional growing preferences.
 
-* Version: 0.4
-* Updated: 2010/11/11 3:25 AM UTC
+* Version: 0.5
+* Updated: 2011/06/05 3:55 PM UTC
 
 h3. Table of Contents
 
@@ -45,6 +45,21 @@ p. Under Extensions tab you will find a subpage called _Autogrowing Textareas_ w
 p. Defining (and hooking) the textarea is done by choosing the backend page where the textarea exists and the XHTML ID (for example body, excerpt etc.) which is defined for the textarea. The auto-grown textarea can either be plugin's or Textpattern's core textarea. Any valid textarea with ID (located under valid @event@ -get callback) can be made to auto-grow.
 
 h3(#changelog). Changelog
+
+p. *Version 0.5*
+
+* Added: now includes uninstaller that uses plugin-lifecycle callbacks, drops the plugin's tables from the database when deleting the plugin.
+* Added: informs the user if updating database records failed.
+* Added: language string support. Now the interface can be translated to different languages using TextPacks.
+* Added: "Options" link to the Plugins pane.
+* Added: rah_ui class selectors to the elements, @<tbody>@ and @<thead>@ containers to the list table.
+* Changed: Improved JavaScript based multi-edit script.
+* Changed: During first install, set the database table's default charset to UTF-8.
+* Changed: Only accept POSTs when saving changes. Requests send as GET are ignored.
+* Changed: shortened the admin-side step names, and renamed step _form_ to _edit_.
+* Removed: replaced @rah_autogrowing_textarea_check()@ function with new method of checking if the plugin is up-to-date. Now uses simple version number to confirm the status.
+* Removed: Some markup, left-over inline styles and pane heading.
+* Now requires Textpattern version 4.2.0 or newer for full feature support.
 
 p. *Version 0.4*
 
