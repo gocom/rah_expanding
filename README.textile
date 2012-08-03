@@ -13,7 +13,7 @@ p. Rah_autogrowing_textarea supports the following web browsers:
 
 * Firefox 4 and newer.
 * Internet Explorer 8 and newer.
-* Safari 5 and newer.
+* Safari 5.1 and newer.
 * Chrome 9 and newer.
 
 p. Opera 12 and newer work partially. Fields do expand and resize, but not always with or because of the content. At times the scroll view's height Opera reports is incorrect or outright random. You may also experience page content shifts on line-wraps due to this.
