@@ -2,6 +2,20 @@ h1. rah_autogrowing_textarea
 
 p. Automatically expanding textareas for "Textpattern CMS's":http://textpattern.com backend. The plugin makes so that all admin-side textareas are adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines. Rah_autogrowing_textarea uses the jQuery plugin "TextAreaExpander":http://blogs.sitepointstatic.com/examples/tech/textarea-expander/index.html by "Craig Buckler":http://www.optimalworks.net/.
 
+h2. Requirements
+
+p. Rah_autogrowing_textarea's minumum requirements:
+
+* Textpattern v4.2.0 and newer.
+* PHP v5.2 and newer.
+
+p. Rah_autogrowing_textarea supports the following web browsers:
+
+* Firefox 3 and newer.
+* Internet Explorer 8 and newer.
+* Safari 4 and newer.
+* Chrome 4 and newer.
+
 h2. Installing
 
 p. The general simple behavior stands: paste plugin code to the plugin installer textarea and run the automatic setup. Then just activate the plugin and it's ready, textareas are auto-growing.
@@ -13,6 +27,7 @@ h3. Version 0.7 - upcoming
 * Changed: now affects all admin-side textareas by default.
 * Removed: Dropped preferences panel and extra options. Slims the installation significally.
 * Replaced Chrys Bader's Auto-grown Textarea with "Craig Buckler's":http://www.optimalworks.net/ "TextAreaExpander":http://blogs.sitepointstatic.com/examples/tech/textarea-expander/index.html.
+* Dropped support for IE6, IE7 and Opera.
 * Is now compatible with Textpattern v4.5.0.
 
 h3. Version 0.6 - 2011/07/26
