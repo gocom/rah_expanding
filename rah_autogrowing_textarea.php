@@ -101,12 +101,9 @@ EOF;
 						if(!$(this).is('textarea') || this.Initialized === true) {
 							return;
 						}
-			
-						// set height restrictions
-						var p = this.className.match(/expand(\d+)\-*(\d+)*/i);
-						this.expandMin = minHeight || (p ? parseInt('0'+p[1], 10) : 0);
-						this.expandMax = maxHeight || (p ? parseInt('0'+p[2], 10) : 99999);
 						
+						this.expandMin = minHeight || 0;
+						this.expandMax = maxHeight || 99999;
 						this.Initialized = true;
 						
 						$(this)
