@@ -87,14 +87,14 @@ EOF;
 						}
 						
 						var range = e.data('rah_agwt_range');
-						dim.offset = e.height() - e.prop('clientHeight');
+						dim.offset = e.height() - e.innerHeight();
 						
 						if(
 							e.css('box-sizing') === 'border-box' || 
 							e.css('-moz-box-sizing') === 'border-box' || 
 							e.css('-webkit-box-sizing') === 'border-box'
 						){
-							dim.offset = e.outerHeight() - e.prop('clientHeight');
+							dim.offset = e.outerHeight() - e.innerHeight();
 						}
 			
 						if(hCheck && (dim.content < opt.content || dim.outer != opt.outer)) {
