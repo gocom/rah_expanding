@@ -53,15 +53,15 @@ EOF;
 
 		$js = <<<EOF
 			/**
-			 * TextAreaExpander plugin for jQuery
-			 * v1.0
+			 * TextAreaExpander plugin for jQuery v1.0
+			 *
 			 * Expands or contracts a textarea height depending on the
 			 * quatity of content entered by the user in the box.
 			 *
 			 * By Craig Buckler, Optimalworks.net
 			 *
 			 * As featured on SitePoint.com:
-			 * http://www.sitepoint.com/blogs/2009/07/29/build-auto-expanding-textarea-1/
+			 * http://www.sitepoint.com/build-auto-expanding-textarea-1/
 			 *
 			 * Please use as you wish at your own risk.
 			 */
