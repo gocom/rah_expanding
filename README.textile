@@ -63,7 +63,7 @@ h2. Changelog
 h3. Version 0.7 - upcoming
 
 * Changed: now affects all admin-side textareas by default.
-* Removed: Dropped preferences panel and extra options. Slims the installation significally.
+* Removed: Dropped preferences panel and extra options. Slims the installation significantly.
 * Replaced Chrys Bader's Auto-grown Textarea with "Craig Buckler's":http://www.optimalworks.net/ "TextAreaExpander":http://blogs.sitepointstatic.com/examples/tech/textarea-expander/index.html.
 * Dropped support for IE6, IE7 and Opera.
 * Is now compatible with Textpattern v4.5.0.
