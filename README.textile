@@ -31,15 +31,32 @@ p. All admin-side textareas are should now automatically expand with the content
 
 h2. For developers
 
-p. Todo
+p. Rah_autogrowing_textarea allows admin-side themes and plugins to set rules for the expanding textareas. Themes have the ability to limit the fields dimensions or disable the plugin on a field basis. All this is doable with some basic, general CSS rules.
 
-h3. Styling and field sizes
+h3. CSS and field sizes
 
-p. Todo
+p. A field's starting height is decided by a visual size set with CSS, or the actual height of the element if no CSS height is specified. The starting size used in an empty state can be set with the "height":https://developer.mozilla.org/en/CSS/height CSS property.
+
+p. A field's maximum height when expanded can be set with a "max-height":https://developer.mozilla.org/en/CSS/max-height CSS property. If a "textarea":https://developer.mozilla.org/en/HTML/Element/textarea doesn't have max-height it expands automatically all the way up to 99999 pixels.
+
+p. Consider the following CSS:
+
+bc. textarea#abc_fieldName {
+	max-height: 5em;
+	height: 1em;
+}
+
+p. With the above, the textarea with the id @abc_fieldName@ will not get any smaller than @1em@ or bigger than @5em@.
 
 h3. Disabling for a field
 
-p. Todo
+p. Automatic expanding can be disabled on a field basis. Any textarea element that is armed with a class @rah_autogrowing_textarea_disable@ will not be affected by the plugin.
+
+bc. <textarea class="rah_autogrowing_textarea_disable" name="foo" rows="10">
+	I don't grow.
+</textarea>
+
+p. A field's expanding can also be disabled by setting the element's CSS property @max-height@ to a equal or a lower value than the @height@.
 
 h2. Changelog
 
