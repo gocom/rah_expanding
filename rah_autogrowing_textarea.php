@@ -68,7 +68,7 @@ EOF;
 				$.fn.rah_TextAreaExpander = function() {
 
 					var hCheck = !($.browser.msie || $.browser.opera);
-					var defaults = {content : 0, outer : 0, h : 0, min : 0, max : 0};
+					var defaults = {content : 0, outer : 0, h : 0, min : 0, max : 0, offset : 0};
 					
 					ResizeTextarea = function(e) {
 						e = $( e.target || e );
@@ -76,7 +76,8 @@ EOF;
 						var dim = {
 							content : e.val().length,
 							outer : e.outerWidth(),
-							h : null
+							h : 0,
+							offset : 0
 						};
 						
 						var opt = $.extend(defaults, e.data('rah_agwt'));
@@ -84,24 +85,35 @@ EOF;
 						if(dim.content == opt.content && dim.outer == opt.outer) {
 							return;
 						}
+						
+						var range = e.data('rah_agwt_range');
+						dim.offset = e.height() - e.prop('clientHeight');
+						
+						if(
+							e.css('box-sizing') === 'border-box' || 
+							e.css('-moz-box-sizing') === 'border-box' || 
+							e.css('-webkit-box-sizing') === 'border-box'
+						){
+							dim.offset = e.outerHeight() - e.prop('clientHeight');
+						}
 			
 						if(hCheck && (dim.content < opt.content || dim.outer != opt.outer)) {
 							e.height(0);
 						}
 
-						dim.h = Math.max(opt.min, Math.min(e.prop('scrollHeight'), opt.max));
+						dim.h = Math.max(range.min, Math.min(e.prop('scrollHeight'), range.max))+dim.offset;
 
 						e
 							.css('overflow', e.prop('scrollHeight') > dim.h ? 'auto' : 'hidden')
 							.height(dim.h)
-							.data('rah_agwt', $.extend(opt, dim));
+							.data('rah_agwt_opt', $.extend(opt, dim));
 					};
 
 					this.each(function() {
 						
 						var obj = $(this);
 					
-						if(!obj.is('textarea') || obj.data('rah_agwt')) {
+						if(!obj.is('textarea') || obj.data('rah_agwt_range')) {
 							return;
 						}
 						
@@ -114,10 +126,10 @@ EOF;
 							return;
 						}
 						
-						obj.data('rah_agwt', range);
+						obj.data('rah_agwt_range', range);
 						
 						obj
-							.css({'padding-top' : 0, 'padding-bottom' : 0, 'overflow' : 'hidden'})
+							.css({'overflow' : 'hidden', 'box-sizing' : 'border-box'})
 							.bind('keyup focus input', ResizeTextarea);
 						
 						ResizeTextarea(this);
