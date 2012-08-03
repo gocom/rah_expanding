@@ -126,9 +126,8 @@ EOF;
 							return;
 						}
 						
-						obj.data('rah_agwt_range', range);
-						
 						obj
+							.data('rah_agwt_range', range)
 							.css({'overflow' : 'hidden', 'box-sizing' : 'border-box'})
 							.bind('keyup focus input', ResizeTextarea);
 						
