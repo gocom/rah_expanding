@@ -67,27 +67,27 @@ EOF;
 			 */
 			
 			(function($) {
-			
-				// jQuery plugin definition
 				$.fn.rah_TextAreaExpander = function(minHeight, maxHeight) {
-			
+
 					var hCheck = !($.browser.msie || $.browser.opera);
-			
-					// resize a textarea
-					function ResizeTextarea(e) {
-			
-						// event or initialize element?
+					
+					ResizeTextarea = function(e) {
 						e = e.target || e;
-			
-						// find content length and box width
+						
 						var vlen = e.value.length, ewidth = e.offsetWidth;
-						if (vlen != e.valLength || ewidth != e.boxWidth) {
+						
+						if(vlen != e.valLength || ewidth != e.boxWidth) {
 			
-							if (hCheck && (vlen < e.valLength || ewidth != e.boxWidth)) e.style.height = "0px";
+							if(hCheck && (vlen < e.valLength || ewidth != e.boxWidth)) {
+								$(e).css('height', '0px');
+							}
+							
 							var h = Math.max(e.expandMin, Math.min(e.scrollHeight, e.expandMax));
 			
-							e.style.overflow = (e.scrollHeight > h ? "auto" : "hidden");
-							e.style.height = h + "px";
+							$(e).css({
+								'overflow' : (e.scrollHeight > h ? 'auto' : 'hidden'),
+								'height' : h+'px'
+							});
 			
 							e.valLength = vlen;
 							e.boxWidth = ewidth;
