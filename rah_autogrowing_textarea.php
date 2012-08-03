@@ -115,7 +115,6 @@ EOF;
 			
 					return this;
 				};
-			
 			})(jQuery);
 EOF;
 
