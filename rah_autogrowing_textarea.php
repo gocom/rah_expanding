@@ -105,10 +105,16 @@ EOF;
 							return;
 						}
 						
-						obj.data('rah_agwt', {
+						var range = {
 							min : obj.height() || 0,
 							max : parseInt(obj.css('max-height'), 10) || 99999
-						});
+						};
+						
+						if(Math.max(range.min, range.max) === range.min) {
+							return;
+						}
+						
+						obj.data('rah_agwt', range);
 						
 						obj
 							.css({'padding-top' : 0, 'padding-bottom' : 0, 'overflow' : 'hidden'})
