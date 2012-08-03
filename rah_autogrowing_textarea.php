@@ -90,33 +90,30 @@ EOF;
 							e.style.height = h + "px";
 			
 							e.valLength = vlen;
-							e.boxWidth = ewidth;
+							e.boxWidth = ewidth;alert(h);
 						}
 			
 						return true;
 					};
 			
-					// initialize
 					this.each(function() {
-			
-						// is a textarea?
-						if (this.nodeName.toLowerCase() != "textarea") return;
+					
+						if(!$(this).is('textarea') || this.Initialized === true) {
+							return;
+						}
 			
 						// set height restrictions
 						var p = this.className.match(/expand(\d+)\-*(\d+)*/i);
 						this.expandMin = minHeight || (p ? parseInt('0'+p[1], 10) : 0);
 						this.expandMax = maxHeight || (p ? parseInt('0'+p[2], 10) : 99999);
-			
-						// initial resize
+						
+						this.Initialized = true;
+						
+						$(this)
+							.css({'padding-top' : 0, 'padding-bottom' : 0})
+							.bind('keyup focus input', ResizeTextarea);
+						
 						ResizeTextarea(this);
-			
-						// zero vertical padding and add events
-						if (!this.Initialized) {
-							this.Initialized = true;
-							$(this)
-								.css({'padding-top' : 0, 'padding-bottom' : 0})
-								.bind('keyup focus input', ResizeTextarea);
-						}
 					});
 			
 					return this;
