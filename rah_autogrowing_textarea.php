@@ -128,7 +128,7 @@ EOF;
 						
 						obj
 							.data('rah_agwt_range', range)
-							.css({'overflow' : 'hidden', 'box-sizing' : 'border-box'})
+							.css({'overflow' : 'hidden', 'box-sizing' : 'border-box', '-moz-box-sizing' : 'border-box'})
 							.bind('keyup focus input', ResizeTextarea);
 						
 						ResizeTextarea(this);
