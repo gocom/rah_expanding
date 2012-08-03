@@ -90,7 +90,7 @@ EOF;
 							e.style.height = h + "px";
 			
 							e.valLength = vlen;
-							e.boxWidth = ewidth;alert(h);
+							e.boxWidth = ewidth;
 						}
 			
 						return true;
