@@ -7,7 +7,7 @@ h2. Requirements
 p. Rah_autogrowing_textarea's minumum requirements:
 
 * Textpattern v4.2.0 and newer.
-* PHP v5.2 and newer.
+* PHP 5.2 and newer.
 
 p. Rah_autogrowing_textarea supports the following web browsers:
 
@@ -16,9 +16,30 @@ p. Rah_autogrowing_textarea supports the following web browsers:
 * Safari 4 and newer.
 * Chrome 4 and newer.
 
+p. Opera 12 and newer work partially. Fields do expand and resize, but not always with or because of the content. At times the scroll view's height Opera reports is incorrect or outright random. You may also experience page content shifts on line-wraps due to this.
+
 h2. Installing
 
-p. The general simple behavior stands: paste plugin code to the plugin installer textarea and run the automatic setup. Then just activate the plugin and it's ready, textareas are auto-growing.
+p. Rah_autogrowing_textarea's installation follows the standard plugin installation steps.
+
+# Download the plugin installation code.
+# Copy and paste the installation code into the _Install plugin_ box of your Textpattern Plugin pane.
+# Run the automated setup.
+# After the setup is done, activate the plugin. Done.
+
+p. All admin-side textareas are should now automatically expand with the content.
+
+h2. For developers
+
+p. Todo
+
+h3. Styling and field sizes
+
+p. Todo
+
+h3. Disabling for a field
+
+p. Todo
 
 h2. Changelog
 
