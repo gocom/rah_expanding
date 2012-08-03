@@ -113,8 +113,9 @@ EOF;
 						// zero vertical padding and add events
 						if (!this.Initialized) {
 							this.Initialized = true;
-							$(this).css("padding-top", 0).css("padding-bottom", 0);
-							$(this).bind("keyup", ResizeTextarea).bind("focus", ResizeTextarea);
+							$(this)
+								.css({'padding-top' : 0, 'padding-bottom' : 0})
+								.bind('keyup focus input', ResizeTextarea);
 						}
 					});
 			
