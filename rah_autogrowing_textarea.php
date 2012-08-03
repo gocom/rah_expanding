@@ -107,7 +107,7 @@ EOF;
 						this.Initialized = true;
 						
 						$(this)
-							.css({'padding-top' : 0, 'padding-bottom' : 0})
+							.css({'padding-top' : 0, 'padding-bottom' : 0, 'overflow' : 'hidden'})
 							.bind('keyup focus input', ResizeTextarea);
 						
 						ResizeTextarea(this);
