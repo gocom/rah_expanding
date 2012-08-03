@@ -36,9 +36,7 @@ class rah_autogrowing_textearea {
 
 		$js = <<<EOF
 			$(document).ready(function(){
-				$('textarea:not(.rah_autogrowing_textarea_disable)').each(function() {
-					$(this).rah_TextAreaExpander($(this).height(), 99999);
-				});
+				$('textarea:not(.rah_autogrowing_textarea_disable)').rah_TextAreaExpander();
 			});
 EOF;
 
@@ -67,46 +65,52 @@ EOF;
 			 */
 			
 			(function($) {
-				$.fn.rah_TextAreaExpander = function(minHeight, maxHeight) {
+				$.fn.rah_TextAreaExpander = function() {
 
 					var hCheck = !($.browser.msie || $.browser.opera);
+					var defaults = {content : 0, outer : 0, h : 0, min : 0, max : 0};
 					
 					ResizeTextarea = function(e) {
-						e = e.target || e;
-						
-						var vlen = e.value.length, ewidth = e.offsetWidth;
-						
-						if(vlen != e.valLength || ewidth != e.boxWidth) {
-			
-							if(hCheck && (vlen < e.valLength || ewidth != e.boxWidth)) {
-								$(e).css('height', '0px');
-							}
+						e = $( e.target || e );
 							
-							var h = Math.max(e.expandMin, Math.min(e.scrollHeight, e.expandMax));
-			
-							$(e).css({
-								'overflow' : (e.scrollHeight > h ? 'auto' : 'hidden'),
-								'height' : h+'px'
-							});
-			
-							e.valLength = vlen;
-							e.boxWidth = ewidth;
+						var dim = {
+							content : e.val().length,
+							outer : e.outerWidth(),
+							h : null
+						};
+						
+						var opt = $.extend(defaults, e.data('rah_agwt'));
+						
+						if(dim.content == opt.content && dim.outer == opt.outer) {
+							return;
 						}
 			
-						return true;
+						if(hCheck && (dim.content < opt.content || dim.outer != opt.outer)) {
+							e.height(0);
+						}
+
+						dim.h = Math.max(opt.min, Math.min(e.prop('scrollHeight'), opt.max));
+
+						e
+							.css('overflow', e.prop('scrollHeight') > dim.h ? 'auto' : 'hidden')
+							.height(dim.h)
+							.data('rah_agwt', $.extend(opt, dim));
 					};
-			
+
 					this.each(function() {
+						
+						var obj = $(this);
 					
-						if(!$(this).is('textarea') || this.Initialized === true) {
+						if(!obj.is('textarea') || obj.data('rah_agwt')) {
 							return;
 						}
 						
-						this.expandMin = minHeight || 0;
-						this.expandMax = maxHeight || 99999;
-						this.Initialized = true;
+						obj.data('rah_agwt', {
+							min : obj.height() || 0,
+							max : parseInt(obj.css('max-height'), 10) || 99999
+						});
 						
-						$(this)
+						obj
 							.css({'padding-top' : 0, 'padding-bottom' : 0, 'overflow' : 'hidden'})
 							.bind('keyup focus input', ResizeTextarea);
 						
