@@ -131,8 +131,6 @@ EOF;
 							.css({
 								'word-wrap' : 'break-word',
 								'resize' : 'none',
-								'overflow' : 'hidden',
-								'overflow-y' : 'hidden',
 								'overflow-x' : 'hidden',
 								'box-sizing' : 'border-box',
 								'-moz-box-sizing' : 'border-box'
