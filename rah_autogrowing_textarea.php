@@ -104,7 +104,7 @@ EOF;
 						dim.h = Math.max(range.min, Math.min(e.prop('scrollHeight'), range.max))+dim.offset;
 
 						e
-							.css('overflow', e.prop('scrollHeight') > dim.h ? 'auto' : 'hidden')
+							.css('overflow-y', e.prop('scrollHeight') > dim.h ? 'auto' : 'hidden')
 							.height(dim.h)
 							.data('rah_agwt_opt', $.extend(opt, dim));
 					};
@@ -128,7 +128,15 @@ EOF;
 						
 						obj
 							.data('rah_agwt_range', range)
-							.css({'overflow' : 'hidden', 'box-sizing' : 'border-box', '-moz-box-sizing' : 'border-box'})
+							.css({
+								'word-wrap' : 'break-word',
+								'resize' : 'none',
+								'overflow' : 'hidden',
+								'overflow-y' : 'hidden',
+								'overflow-x' : 'hidden',
+								'box-sizing' : 'border-box',
+								'-moz-box-sizing' : 'border-box'
+							})
 							.bind('keyup focus input', ResizeTextarea);
 						
 						ResizeTextarea(this);
