@@ -80,7 +80,7 @@ EOF;
 							offset : 0
 						};
 						
-						var opt = $.extend(defaults, e.data('rah_agwt'));
+						var opt = $.extend(defaults, e.data('rah_agwt_opt'));
 						
 						if(dim.content == opt.content && dim.outer == opt.outer) {
 							return;
