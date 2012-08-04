@@ -109,7 +109,7 @@ EOF;
 							.data('rah_agwt_opt', $.extend(opt, dim));
 					};
 
-					this.each(function() {
+					return this.each(function() {
 						
 						var obj = $(this);
 					
@@ -140,9 +140,11 @@ EOF;
 							.bind('keyup focus input', ResizeTextarea);
 						
 						ResizeTextarea(this);
+						
+						$(window).resize(function() {
+							ResizeTextarea(obj);
+						});
 					});
-			
-					return this;
 				};
 			})(jQuery);
 EOF;
