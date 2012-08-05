@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Rah_autogrowing_textarea plugin for Textpattern CMS.
+ * rah_expanding plugin for Textpattern CMS.
  *
  * @author Jukka Svahn
  * @date 2008-
  * @license GNU GPLv2
- * @link http://rahforum.biz/plugins/rah_autogrowing_textarea
+ * @link http://rahforum.biz/plugins/rah_expanding
  * 
  * Copyright (C) 2008 Jukka Svahn <http://rahforum.biz>
  * Licensed under GNU Genral Public License version 2
@@ -14,10 +14,10 @@
  */
 
 	if(@txpinterface == 'admin') {
-		new rah_autogrowing_textarea();
+		new rah_expanding();
 	}
 
-class rah_autogrowing_textarea {
+class rah_expanding {
 
 	/**
 	 * Constructor
@@ -36,7 +36,7 @@ class rah_autogrowing_textarea {
 
 		$js = <<<EOF
 			$(document).ready(function(){
-				$('textarea:not(.rah_autogrowing_textarea_disable)').rah_autogrowing_textarea();
+				$('textarea:not(.rah_expanding_disable)').rah_expanding();
 			});
 EOF;
 
@@ -69,13 +69,13 @@ EOF;
 					$.isFunction(test.prop('oninput')) === false ||
 					test.css('line-height') !== '99px'
 				) {
-					$.fn.rah_autogrowing_textarea = function () {
+					$.fn.rah_expanding = function () {
 						return this;
 					};
 					return;
 				}
 
-				$.fn.rah_autogrowing_textarea = function() {
+				$.fn.rah_expanding = function() {
 			
 					var copy = '<textarea tabindex="-1" style="position:absolute; top:-9999px; left:-9999px; right:auto; bottom:auto; -moz-box-sizing:content-box; -webkit-box-sizing:content-box; box-sizing:content-box; word-wrap:break-word; height:0 !important; min-height:0 !important; overflow:hidden">',
 			
@@ -95,7 +95,7 @@ EOF;
 			
 						var textarea = $(this);
 			
-						if(textarea.data('rah_agwt_mirror') || textarea.data('rah_agwt_is_mirror')) {
+						if(textarea.data('rah_expanding_mirror') || textarea.data('rah_expanding_is_mirror')) {
 							return;
 						}
 			
@@ -103,7 +103,7 @@ EOF;
 							min : textarea.height(),
 							max : Math.max(parseInt(textarea.css('max-height'), 10) || 0, 99999),
 							offset : 0,
-							mirror : $(copy).data('rah_agwt_is_mirror', true),
+							mirror : $(copy).data('rah_expanding_is_mirror', true),
 							active : false
 						};
 			
@@ -118,7 +118,7 @@ EOF;
 							opt.offset = textarea.outerHeight() - textarea.height();
 						}
 			
-						textarea.data('rah_agwt_mirror', opt.mirror).css({
+						textarea.data('rah_expanding_mirror', opt.mirror).css({
 							'overflow' : 'hidden',
 							'overflow-x' : 'hidden',
 							'overflow-y' : 'hidden',
@@ -163,7 +163,7 @@ EOF;
 						});
 			
 						$('body').append(opt.mirror);
-						textarea.on('input keyup blur focus resize rah_autogrowing_textarea_resize', methods.resize);
+						textarea.on('input keyup blur focus resize rah_expanding_resize', methods.resize);
 						$(window).resize(methods.resize);
 						methods.resize();
 					});
