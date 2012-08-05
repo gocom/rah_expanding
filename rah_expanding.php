@@ -84,11 +84,15 @@ EOF;
 						'font-size',
 						'font-weight',
 						'font-style',
+						'font-variant',
 						'letter-spacing',
 						'text-transform',
 						'word-spacing',
 						'text-indent',
-						'line-height'
+						'line-height',
+						'tab-size',
+						'text-align',
+						'text-rendering'
 					];
 
 					return this.each(function () {
