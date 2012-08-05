@@ -77,7 +77,7 @@ EOF;
 
 				$.fn.rah_autogrowing_textarea = function() {
 			
-					var copy = '<textarea class="rah_agwt_is_mirror" tabindex="-1" style="position:absolute; top:-9999px; left:-9999px; right:auto; bottom:auto; -moz-box-sizing:content-box; -webkit-box-sizing:content-box; box-sizing:content-box; word-wrap:break-word; height:0 !important; min-height:0 !important; overflow:hidden">',
+					var copy = '<textarea tabindex="-1" style="position:absolute; top:-9999px; left:-9999px; right:auto; bottom:auto; -moz-box-sizing:content-box; -webkit-box-sizing:content-box; box-sizing:content-box; word-wrap:break-word; height:0 !important; min-height:0 !important; overflow:hidden">',
 			
 					copyStyle = [
 						'font-family',
@@ -95,7 +95,7 @@ EOF;
 			
 						var textarea = $(this);
 			
-						if(textarea.data('rah_agwt_mirror') || textarea.hasClass('rah_agwt_is_mirror')) {
+						if(textarea.data('rah_agwt_mirror') || textarea.data('rah_agwt_is_mirror')) {
 							return;
 						}
 			
@@ -103,7 +103,7 @@ EOF;
 							min : textarea.height(),
 							max : Math.max(parseInt(textarea.css('max-height'), 10) || 0, 99999),
 							offset : 0,
-							mirror : $(copy),
+							mirror : $(copy).data('rah_agwt_is_mirror', true),
 							active : false
 						};
 			
