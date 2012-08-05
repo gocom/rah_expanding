@@ -101,11 +101,15 @@ EOF;
 
 						var opt = {
 							min : textarea.height(),
-							max : Math.max(parseInt(textarea.css('max-height'), 10) || 0, 99999),
+							max : parseInt(textarea.css('max-height'), 10),
 							offset : 0,
 							mirror : $(copy).data('rah_expanding_is_mirror', true),
 							active : false
 						};
+
+						if(!opt.max || opt.max < 0 || opt.max > 99999) {
+							opt.max = 99999;
+						}
 
 						if(opt.max <= opt.min) {
 							return;
