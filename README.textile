@@ -1,6 +1,6 @@
 h1. rah_autogrowing_textarea
 
-p. Automatically expanding textareas for "Textpattern CMS's":http://textpattern.com backend. The plugin makes so that all admin-side textareas are adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines. Rah_autogrowing_textarea uses the jQuery plugin "TextAreaExpander":http://blogs.sitepointstatic.com/examples/tech/textarea-expander/index.html by "Craig Buckler":http://www.optimalworks.net/.
+p. Automatically expanding textareas for "Textpattern CMS's":http://textpattern.com backend. The plugin makes so that all admin-side textareas are adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines.
 
 h2. Requirements
 
@@ -11,12 +11,11 @@ p. Rah_autogrowing_textarea's minumum requirements:
 
 p. Rah_autogrowing_textarea supports the following web browsers:
 
-* Firefox 4 and newer.
-* Internet Explorer 8 and newer.
+* Firefox 12 and newer.
+* Internet Explorer 9 and newer.
 * Safari 5.1 and newer.
 * Chrome 9 and newer.
-
-p. Opera 12 and newer work partially. Fields do expand and resize, but not always with or because of the content. At times the scroll view's height Opera reports is incorrect or outright random. You may also experience page content shifts on line-wraps due to this.
+* Opera 12 and newer.
 
 h2. Installing
 
@@ -64,8 +63,8 @@ h3. Version 0.7 - upcoming
 
 * Changed: now affects all admin-side textareas by default.
 * Removed: Dropped preferences panel and extra options. Slims the installation significantly.
-* Replaced Chrys Bader's Auto-grown Textarea with "Craig Buckler's":http://www.optimalworks.net/ "TextAreaExpander":http://blogs.sitepointstatic.com/examples/tech/textarea-expander/index.html.
-* Dropped support for IE6, IE7 and Opera.
+* Replaced Chrys Bader's Auto-grown Textarea JavaScript solution with a fork of "Jack Moore's":http://www.jacklmoore.com/ "Autoresize":https://github.com/jackmoore/autosize.
+* Dropped support for IE6, IE7, IE8, Safari <5.1, Chrome <9, Firefox <12 and Opera <12.
 * Is now compatible with Textpattern v4.5.0.
 
 h3. Version 0.6 - 2011/07/26
