@@ -4,12 +4,12 @@ p. Automatically expanding textareas for "Textpattern CMS's":http://textpattern.
 
 h2. Requirements
 
-p. rah_expanding's minumum requirements:
+p. Rah_expanding's minimum requirements:
 
 * Textpattern v4.2.0 and newer.
 * PHP 5.2 and newer.
 
-p. rah_expanding supports the following web browsers:
+p. Rah_expanding supports the following web browsers:
 
 * Firefox 12 and newer.
 * Internet Explorer 9 and newer.
@@ -19,7 +19,7 @@ p. rah_expanding supports the following web browsers:
 
 h2. Installing
 
-p. rah_expanding's installation follows the standard plugin installation steps.
+p. Rah_expanding's installation follows the standard plugin installation steps.
 
 # Download the plugin installation code.
 # Copy and paste the installation code into the _Install plugin_ box of your Textpattern Plugin pane.
