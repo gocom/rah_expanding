@@ -152,7 +152,7 @@ EOF;
 								));
 
 								textarea.css({
-									'overflow-y' : height < opt.max ? 'hidden' : 'auto',
+									'overflow-y' : height < opt.max ? 'hidden' : 'scroll',
 									'height' : (height + opt.offset) + 'px',
 									'max-height' : (height + opt.offset) + 'px',
 									'min-height' : (height + opt.offset) + 'px'
