@@ -1,15 +1,15 @@
-h1. rah_autogrowing_textarea
+h1. rah_expanding
 
 p. Automatically expanding textareas for "Textpattern CMS's":http://textpattern.com backend. The plugin makes so that all admin-side textareas are adjusted to automatically grow along the content. While you type, the textarea will follow and resize, depending on the amount of the content and lines.
 
 h2. Requirements
 
-p. Rah_autogrowing_textarea's minumum requirements:
+p. rah_expanding's minumum requirements:
 
 * Textpattern v4.2.0 and newer.
 * PHP 5.2 and newer.
 
-p. Rah_autogrowing_textarea supports the following web browsers:
+p. rah_expanding supports the following web browsers:
 
 * Firefox 12 and newer.
 * Internet Explorer 9 and newer.
@@ -19,7 +19,7 @@ p. Rah_autogrowing_textarea supports the following web browsers:
 
 h2. Installing
 
-p. Rah_autogrowing_textarea's installation follows the standard plugin installation steps.
+p. rah_expanding's installation follows the standard plugin installation steps.
 
 # Download the plugin installation code.
 # Copy and paste the installation code into the _Install plugin_ box of your Textpattern Plugin pane.
@@ -30,7 +30,7 @@ p. All admin-side textareas are should now automatically expand with the content
 
 h2. For developers
 
-p. Rah_autogrowing_textarea allows admin-side themes and plugins to set rules for the expanding textareas. Themes have the ability to limit the fields dimensions or disable the plugin on a field basis. All this is doable with some basic, general CSS rules.
+p. rah_expanding allows admin-side themes and plugins to set rules for the expanding textareas. Themes have the ability to limit the fields dimensions or disable the plugin on a field basis. All this is doable with some basic, general CSS rules.
 
 h3. CSS and field sizes
 
@@ -49,9 +49,9 @@ p. With the above, the textarea with the id @abc_fieldName@ will not get any sma
 
 h3. Disabling for a field
 
-p. Automatic expanding can be disabled on a field basis. Any textarea element that is armed with a class @rah_autogrowing_textarea_disable@ will not be affected by the plugin.
+p. Automatic expanding can be disabled on a field basis. Any textarea element that is armed with a class @rah_expanding_disable@ will not be affected by the plugin.
 
-bc. <textarea class="rah_autogrowing_textarea_disable" name="foo" rows="10">
+bc. <textarea class="rah_expanding_disable" name="foo" rows="10">
 	I don't grow.
 </textarea>
 
@@ -59,17 +59,17 @@ p. A field's expanding can also be disabled by setting the element's CSS propert
 
 h3. Attaching to a textarea
 
-p. The plugin works for textareas present in the initial page load. If the DOM modified after that and a new textarea is added, the the plugin's resizer needs to be attached to those elements. The plugin allows using a jQuery interface. It has a method named @rah_autogrowing_textarea_resize()@.
+p. The plugin works for textareas present in the initial page load. If the DOM modified after that and a new textarea is added, the the plugin's resizer needs to be attached to those elements. The plugin allows using a jQuery interface. It has a method named @rah_expanding_resize()@.
 
-bc. $('textarea').rah_autogrowing_textarea_resize();
+bc. $('textarea').rah_expanding_resize();
 
 p. The above would attach the resizing magic to any new textarea present on the page.
 
 h3. Triggering resize
 
-p. A textarea's resizing can be invoked manually incase the field's contents are changed programmatically on-the-fly. These type of automated changes are not otherwise tracked without the plugin being specifically informed about the change. Rah_autogrowing_textarea has a custom event named as @rah_autogrowing_textarea_resize@. You can access it using jQuery's "trigger":http://api.jquery.com/trigger/ method.
+p. A textarea's resizing can be invoked manually incase the field's contents are changed programmatically on-the-fly. These type of automated changes are not otherwise tracked without the plugin being specifically informed about the change. rah_expanding has a custom event named as @rah_expanding_resize@. You can access it using jQuery's "trigger":http://api.jquery.com/trigger/ method.
 
-bc. $('textarea').trigger('rah_autogrowing_textarea_resize');
+bc. $('textarea').trigger('rah_expanding_resize');
 
 h2. Changelog
 
