@@ -64,87 +64,85 @@ EOF;
 			 * Please use as you wish at your own risk.
 			 */
 			
-			(function($) {
-				$.fn.rah_TextAreaExpander = function() {
-
-					var hCheck = !($.browser.msie || $.browser.opera);
-					var defaults = {content : 0, outer : 0, h : 0, min : 0, max : 0, offset : 0};
+			$.fn.rah_TextAreaExpander = function() {
+				
+				var hCheck = !($.browser.msie || $.browser.opera);
+				var defaults = {content : 0, outer : 0, h : 0, min : 0, max : 0, offset : 0};
+				
+				ResizeTextarea = function(e) {
+					e = $( e.target || e );
 					
-					ResizeTextarea = function(e) {
-						e = $( e.target || e );
-							
-						var dim = {
-							content : e.val().length,
-							outer : e.outerWidth(),
-							h : 0,
-							offset : 0
-						};
-						
-						var opt = $.extend(defaults, e.data('rah_agwt_opt'));
-						
-						if(dim.content == opt.content && dim.outer == opt.outer) {
-							return;
-						}
-						
-						var range = e.data('rah_agwt_range');
-						dim.offset = e.height() - e.innerHeight();
-						
-						if(
-							e.css('box-sizing') === 'border-box' || 
-							e.css('-moz-box-sizing') === 'border-box' || 
-							e.css('-webkit-box-sizing') === 'border-box'
-						){
-							dim.offset = e.outerHeight() - e.innerHeight();
-						}
-			
-						if(hCheck && (dim.content < opt.content || dim.outer != opt.outer)) {
-							e.height(0);
-						}
-
-						dim.h = Math.max(range.min, Math.min(e.prop('scrollHeight'), range.max))+dim.offset;
-
-						e
-							.css('overflow-y', e.prop('scrollHeight') > dim.h ? 'auto' : 'hidden')
-							.height(dim.h)
-							.data('rah_agwt_opt', $.extend(opt, dim));
+					var dim = {
+						content : e.val().length,
+						outer : e.outerWidth(),
+						h : 0,
+						offset : 0
 					};
 
-					return this.each(function() {
-						
-						var obj = $(this);
-					
-						if(!obj.is('textarea') || obj.data('rah_agwt_range')) {
-							return;
-						}
-						
-						var range = {
-							min : obj.height() || 0,
-							max : parseInt(obj.css('max-height'), 10) || 99999
-						};
-						
-						if(Math.max(range.min, range.max) === range.min) {
-							return;
-						}
-						
-						obj
-							.data('rah_agwt_range', range)
-							.css({
-								'word-wrap' : 'break-word',
-								'resize' : 'none',
-								'overflow-x' : 'hidden',
-								'box-sizing' : 'border-box',
-								'-moz-box-sizing' : 'border-box'
-							})
-							.bind('keyup focus input blur', ResizeTextarea);
-						
-						ResizeTextarea(this);
-						
-						$(window).resize(function() {
-							ResizeTextarea(obj);
-						});
-					});
+					var opt = $.extend(defaults, e.data('rah_agwt_opt'));
+
+					if(dim.content == opt.content && dim.outer == opt.outer) {
+						return;
+					}
+
+					var range = e.data('rah_agwt_range');
+					dim.offset = e.height() - e.innerHeight();
+
+					if(
+						e.css('box-sizing') === 'border-box' || 
+						e.css('-moz-box-sizing') === 'border-box' || 
+						e.css('-webkit-box-sizing') === 'border-box'
+					){
+						dim.offset = e.outerHeight() - e.innerHeight();
+					}
+
+					if(hCheck && (dim.content < opt.content || dim.outer != opt.outer)) {
+						e.height(0);
+					}
+
+					dim.h = Math.max(range.min, Math.min(e.prop('scrollHeight'), range.max))+dim.offset;
+
+					e
+						.css('overflow-y', e.prop('scrollHeight') > dim.h ? 'auto' : 'hidden')
+						.height(dim.h)
+						.data('rah_agwt_opt', $.extend(opt, dim));
 				};
-			})(jQuery);
+
+				return this.each(function() {
+
+					var obj = $(this);
+
+					if(!obj.is('textarea') || obj.data('rah_agwt_range')) {
+						return;
+					}
+
+					var range = {
+						min : obj.height() || 0,
+						max : parseInt(obj.css('max-height'), 10) || 99999
+					};
+
+					if(Math.max(range.min, range.max) === range.min) {
+						return;
+					}
+
+					obj
+						.data('rah_agwt_range', range)
+						.css({
+							'word-wrap' : 'break-word',
+							'resize' : 'none',
+							'overflow-x' : 'hidden',
+							'box-sizing' : 'border-box',
+							'-moz-box-sizing' : 'border-box'
+						})
+						.bind('keyup focus input blur', ResizeTextarea);
+
+					ResizeTextarea(this);
+
+					$(window).resize(function() {
+						ResizeTextarea(obj);
+					});
+				});
+			};
 EOF;
 
 		echo script_js($js);
