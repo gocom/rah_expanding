@@ -51,99 +51,124 @@ EOF;
 
 		$js = <<<EOF
 			/**
-			 * TextAreaExpander plugin for jQuery v1.0
+			 * Forked from Autosize project written by Jack Moore:
 			 *
-			 * Expands or contracts a textarea height depending on the
-			 * quatity of content entered by the user in the box.
+			 * Autosize 1.10 - jQuery plugin for textareas
+			 * by Jack Moore
+			 * <http://www.jacklmoore.com/autosize>
 			 *
-			 * By Craig Buckler, Optimalworks.net
-			 *
-			 * As featured on SitePoint.com:
-			 * http://www.sitepoint.com/build-auto-expanding-textarea-1/
-			 *
-			 * Please use as you wish at your own risk.
+			 * (c) 2012 Jack Moore - jacklmoore.com
+			 * license: www.opensource.org/licenses/mit-license.php
 			 */
 			
-			$.fn.rah_autogrowing_textarea = function() {
-				
-				var hCheck = !($.browser.msie || $.browser.opera);
-				var defaults = {content : 0, outer : 0, h : 0, min : 0, max : 0, offset : 0};
-				var methods = {
-					resize : function(e) {
-						e = $( e.target || e );
-						
-						var dim = {
-							content : e.val().length,
-							outer : e.outerWidth(),
-							h : 0,
-							offset : 0
-						};
-	
-						var opt = $.extend(defaults, e.data('rah_agwt_opt'));
-	
-						if(dim.content == opt.content && dim.outer == opt.outer) {
+			(function($) {
+
+				var test = $('<textarea/>').attr('oninput', 'return').css('line-height', '99px');
+
+				if(
+					$.isFunction(test.prop('oninput')) === false ||
+					test.css('line-height') !== '99px'
+				) {
+					$.fn.rah_autogrowing_textarea = function () {
+						return this;
+					};
+					return;
+				}
+
+				$.fn.rah_autogrowing_textarea = function() {
+			
+					var copy = '<textarea class="rah_agwt_is_mirror" tabindex="-1" style="position:absolute; top:-9999px; left:-9999px; right:auto; bottom:auto; -moz-box-sizing:content-box; -webkit-box-sizing:content-box; box-sizing:content-box; word-wrap:break-word; height:0 !important; min-height:0 !important; overflow:hidden">',
+			
+					copyStyle = [
+						'font-family',
+						'font-size',
+						'font-weight',
+						'font-style',
+						'letter-spacing',
+						'text-transform',
+						'word-spacing',
+						'text-indent',
+						'line-height'
+					];
+
+					return this.each(function () {
+			
+						var textarea = $(this);
+			
+						if(textarea.data('rah_agwt_mirror') || textarea.hasClass('rah_agwt_is_mirror')) {
 							return;
 						}
-	
-						var range = e.data('rah_agwt_range');
-						dim.offset = e.height() - e.innerHeight();
-	
+			
+						var opt = {
+							min : textarea.height(),
+							max : Math.max(parseInt(textarea.css('max-height'), 10) || 0, 99999),
+							offset : 0,
+							mirror : $(copy),
+							active : false
+						};
+			
+						if(opt.max <= opt.min) {
+							return;
+						}
+			
 						if(
-							e.css('box-sizing') === 'border-box' || 
-							e.css('-moz-box-sizing') === 'border-box' || 
-							e.css('-webkit-box-sizing') === 'border-box'
-						){
-							dim.offset = e.outerHeight() - e.innerHeight();
+							textarea.css('box-sizing') === 'border-box' || 
+							textarea.css('-moz-box-sizing') === 'border-box'
+						) {
+							opt.offset = textarea.outerHeight() - textarea.height();
 						}
-	
-						if(hCheck && (dim.content < opt.content || dim.outer != opt.outer)) {
-							e.height(0);
-						}
-	
-						dim.h = Math.max(range.min, Math.min(e.prop('scrollHeight'), range.max))+dim.offset;
-	
-						e
-							.css('overflow-y', e.prop('scrollHeight') > dim.h ? 'auto' : 'hidden')
-							.height(dim.h)
-							.data('rah_agwt_opt', $.extend(opt, dim));
-					}
-				};
-
-				return this.each(function() {
-
-					var obj = $(this);
-
-					if(!obj.is('textarea') || obj.data('rah_agwt_range')) {
-						return;
-					}
-
-					var range = {
-						min : obj.height() || 0,
-						max : parseInt(obj.css('max-height'), 10) || 99999
-					};
-
-					if(Math.max(range.min, range.max) === range.min) {
-						return;
-					}
-
-					obj
-						.data('rah_agwt_range', range)
-						.css({
-							'word-wrap' : 'break-word',
-							'resize' : 'none',
+			
+						textarea.data('rah_agwt_mirror', opt.mirror).css({
+							'overflow' : 'hidden',
 							'overflow-x' : 'hidden',
-							'box-sizing' : 'border-box',
-							'-moz-box-sizing' : 'border-box'
-						})
-						.bind('keyup focus input blur', methods.resize);
-
-					methods.resize(this);
-
-					$(window).resize(function() {
-						methods.resize(obj);
+							'overflow-y' : 'hidden',
+							'word-wrap' : 'break-word',
+							'resize' : 'none'
+						});
+			
+						var methods = {
+							resize : function() {
+			
+								if(opt.active) {
+									return;
+								}
+								
+								opt.active = true;
+									
+								var height = Math.max(opt.min, Math.min(opt.max, 
+									opt.mirror
+									.val(textarea.val())
+									.css({
+										'overflow-y' : textarea.css('overflow-y'),
+										'width' : textarea.css('width'),
+									})
+									.scrollTop(0)
+									.scrollTop(99999)
+									.scrollTop()
+								));
+								
+								textarea.css({
+									'overflow-y' : height < opt.max ? 'hidden' : 'auto',
+									'height' : height + opt.offset + 'px'
+								});
+								
+								setTimeout(function () {
+									opt.active = false;
+								}, 1);
+							}
+						};
+			
+						$.each(copyStyle, function(key, value) {
+							opt.mirror.css(value, textarea.css(value));
+						});
+			
+						$('body').append(opt.mirror);
+						textarea.bind('input keyup blur focus resize', methods.resize);
+						$(window).resize(methods.resize);
+						methods.resize();
 					});
-				});
-			};
+				};
+			}(jQuery));
 EOF;
 
 		echo script_js($js);
