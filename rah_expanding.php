@@ -60,7 +60,7 @@ EOF;
 			 * (c) 2012 Jack Moore - jacklmoore.com
 			 * license: www.opensource.org/licenses/mit-license.php
 			 */
-			
+
 			(function($) {
 
 				var test = $('<textarea/>').attr('oninput', 'return').css('line-height', '99px');
@@ -76,9 +76,9 @@ EOF;
 				}
 
 				$.fn.rah_expanding = function() {
-			
+
 					var copy = '<textarea tabindex="-1" style="position:absolute; top:-9999px; left:-9999px; right:auto; bottom:auto; -moz-box-sizing:content-box; -webkit-box-sizing:content-box; box-sizing:content-box; word-wrap:break-word; height:0 !important; min-height:0 !important; min-width:0 !important; overflow:hidden">',
-			
+
 					copyStyle = [
 						'font-family',
 						'font-size',
@@ -92,13 +92,13 @@ EOF;
 					];
 
 					return this.each(function () {
-			
+
 						var textarea = $(this);
-			
+
 						if(textarea.data('rah_expanding_mirror') || textarea.data('rah_expanding_is_mirror')) {
 							return;
 						}
-			
+
 						var opt = {
 							min : textarea.height(),
 							max : Math.max(parseInt(textarea.css('max-height'), 10) || 0, 99999),
@@ -106,18 +106,18 @@ EOF;
 							mirror : $(copy).data('rah_expanding_is_mirror', true),
 							active : false
 						};
-			
+
 						if(opt.max <= opt.min) {
 							return;
 						}
-			
+
 						if(
 							textarea.css('box-sizing') === 'border-box' || 
 							textarea.css('-moz-box-sizing') === 'border-box'
 						) {
 							opt.offset = textarea.outerHeight() - textarea.height();
 						}
-			
+
 						textarea.data('rah_expanding_mirror', opt.mirror).css({
 							'overflow' : 'hidden',
 							'overflow-x' : 'hidden',
@@ -125,16 +125,16 @@ EOF;
 							'word-wrap' : 'break-word',
 							'resize' : 'none'
 						});
-			
+
 						var methods = {
 							resize : function() {
-			
+
 								if(opt.active) {
 									return;
 								}
-								
+
 								opt.active = true;
-									
+
 								var height = Math.max(opt.min, Math.min(opt.max, 
 									opt.mirror
 									.val(textarea.val())
@@ -146,22 +146,22 @@ EOF;
 									.scrollTop(99999)
 									.scrollTop()
 								));
-								
+
 								textarea.css({
 									'overflow-y' : height < opt.max ? 'hidden' : 'auto',
 									'height' : (height + opt.offset) + 'px'
 								});
-								
+
 								setTimeout(function () {
 									opt.active = false;
 								}, 1);
 							}
 						};
-			
+
 						$.each(copyStyle, function(key, value) {
 							opt.mirror.css(value, textarea.css(value));
 						});
-			
+
 						$('body').append(opt.mirror);
 						textarea.on('input keyup blur focus resize rah_expanding_resize', methods.resize);
 						$(window).resize(methods.resize);
