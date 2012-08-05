@@ -1,8 +1,8 @@
 <manifest>
 
-	<name>rah_autogrowing_textarea</name>
-	<description>Autogrowing textareas to Textpattern's backend</description>
-	
+	<name>rah_expanding</name>
+	<description>Expanding textareas for Textpattern's admin-side</description>
+
 	<version>0.6</version>
 	<type>3</type>
 
