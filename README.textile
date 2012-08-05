@@ -6,16 +6,20 @@ h2. Requirements
 
 p. Rah_expanding's minimum requirements:
 
-* Textpattern v4.2.0 and newer.
+* Textpattern v4.4.0 and newer.
 * PHP 5.2 and newer.
 
-p. Rah_expanding supports the following web browsers:
+h2. Supported web browsers
+
+p. Rah_expanding is compatible with the following web browsers:
 
 * Firefox 12 and newer.
 * Internet Explorer 9 and newer.
 * Safari 5.1 and newer.
 * Chrome 9 and newer.
 * Opera 12 and newer.
+
+p. Web browsers that outright miss required features will gracefully fallback to a normal textarea with visible scrollbars.
 
 h2. Installing
 
