@@ -57,6 +57,20 @@ bc. <textarea class="rah_autogrowing_textarea_disable" name="foo" rows="10">
 
 p. A field's expanding can also be disabled by setting the element's CSS property @max-height@ to a equal or a lower value than the @height@.
 
+h3. Attaching to a textarea
+
+p. The plugin works for textareas present in the initial page load. If the DOM modified after that and a new textarea is added, the the plugin's resizer needs to be attached to those elements. The plugin allows using a jQuery interface. It has a method named @rah_autogrowing_textarea_resize()@.
+
+bc. $('textarea').rah_autogrowing_textarea_resize();
+
+p. The above would attach the resizing magic to any new textarea present on the page.
+
+h3. Triggering resize
+
+p. A textarea's resizing can be invoked manually incase the field's contents are changed programmatically on-the-fly. These type of automated changes are not otherwise tracked without the plugin being specifically informed about the change. Rah_autogrowing_textarea has a custom event named as @rah_autogrowing_textarea_resize@. You can access it using jQuery's "trigger":http://api.jquery.com/trigger/ method.
+
+bc. $('textarea').trigger('rah_autogrowing_textarea_resize');
+
 h2. Changelog
 
 h3. Version 0.7 - upcoming
