@@ -153,7 +153,9 @@ EOF;
 
 								textarea.css({
 									'overflow-y' : height < opt.max ? 'hidden' : 'auto',
-									'height' : (height + opt.offset) + 'px'
+									'height' : (height + opt.offset) + 'px',
+									'max-height' : (height + opt.offset) + 'px',
+									'min-height' : (height + opt.offset) + 'px'
 								});
 
 								setTimeout(function () {
