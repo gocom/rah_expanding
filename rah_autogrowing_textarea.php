@@ -135,7 +135,7 @@ EOF;
 								'box-sizing' : 'border-box',
 								'-moz-box-sizing' : 'border-box'
 							})
-							.bind('keyup focus input', ResizeTextarea);
+							.bind('keyup focus input blur', ResizeTextarea);
 						
 						ResizeTextarea(this);
 						
