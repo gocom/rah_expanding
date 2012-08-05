@@ -163,7 +163,7 @@ EOF;
 						});
 			
 						$('body').append(opt.mirror);
-						textarea.bind('input keyup blur focus resize', methods.resize);
+						textarea.on('input keyup blur focus resize rah_autogrowing_textarea_resize', methods.resize);
 						$(window).resize(methods.resize);
 						methods.resize();
 					});
