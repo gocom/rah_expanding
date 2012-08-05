@@ -14,10 +14,10 @@
  */
 
 	if(@txpinterface == 'admin') {
-		new rah_autogrowing_textearea();
+		new rah_autogrowing_textarea();
 	}
 
-class rah_autogrowing_textearea {
+class rah_autogrowing_textarea {
 
 	/**
 	 * Constructor
@@ -36,7 +36,7 @@ class rah_autogrowing_textearea {
 
 		$js = <<<EOF
 			$(document).ready(function(){
-				$('textarea:not(.rah_autogrowing_textarea_disable)').rah_TextAreaExpander();
+				$('textarea:not(.rah_autogrowing_textarea_disable)').rah_autogrowing_textarea();
 			});
 EOF;
 
@@ -64,7 +64,7 @@ EOF;
 			 * Please use as you wish at your own risk.
 			 */
 			
-			$.fn.rah_TextAreaExpander = function() {
+			$.fn.rah_autogrowing_textarea = function() {
 				
 				var hCheck = !($.browser.msie || $.browser.opera);
 				var defaults = {content : 0, outer : 0, h : 0, min : 0, max : 0, offset : 0};
