@@ -80,6 +80,7 @@ h3. Version 0.7 - upcoming
 * Replaced Chrys Bader's Auto-grown Textarea JavaScript solution with a fork of "Jack Moore's":http://www.jacklmoore.com/ "Autoresize":https://github.com/jackmoore/autosize.
 * Dropped support for IE6, IE7, IE8, Safari <5.1, Chrome <9, Firefox <12 and Opera <12.
 * Is now compatible with Textpattern v4.5.0.
+* Rebranded the project as rah_expanding.
 
 h3. Version 0.6 - 2011/07/26
 
