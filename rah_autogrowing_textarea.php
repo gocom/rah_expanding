@@ -68,44 +68,45 @@ EOF;
 				
 				var hCheck = !($.browser.msie || $.browser.opera);
 				var defaults = {content : 0, outer : 0, h : 0, min : 0, max : 0, offset : 0};
-				
-				ResizeTextarea = function(e) {
-					e = $( e.target || e );
-					
-					var dim = {
-						content : e.val().length,
-						outer : e.outerWidth(),
-						h : 0,
-						offset : 0
-					};
-
-					var opt = $.extend(defaults, e.data('rah_agwt_opt'));
-
-					if(dim.content == opt.content && dim.outer == opt.outer) {
-						return;
+				var methods = {
+					resize : function(e) {
+						e = $( e.target || e );
+						
+						var dim = {
+							content : e.val().length,
+							outer : e.outerWidth(),
+							h : 0,
+							offset : 0
+						};
+	
+						var opt = $.extend(defaults, e.data('rah_agwt_opt'));
+	
+						if(dim.content == opt.content && dim.outer == opt.outer) {
+							return;
+						}
+	
+						var range = e.data('rah_agwt_range');
+						dim.offset = e.height() - e.innerHeight();
+	
+						if(
+							e.css('box-sizing') === 'border-box' || 
+							e.css('-moz-box-sizing') === 'border-box' || 
+							e.css('-webkit-box-sizing') === 'border-box'
+						){
+							dim.offset = e.outerHeight() - e.innerHeight();
+						}
+	
+						if(hCheck && (dim.content < opt.content || dim.outer != opt.outer)) {
+							e.height(0);
+						}
+	
+						dim.h = Math.max(range.min, Math.min(e.prop('scrollHeight'), range.max))+dim.offset;
+	
+						e
+							.css('overflow-y', e.prop('scrollHeight') > dim.h ? 'auto' : 'hidden')
+							.height(dim.h)
+							.data('rah_agwt_opt', $.extend(opt, dim));
 					}
-
-					var range = e.data('rah_agwt_range');
-					dim.offset = e.height() - e.innerHeight();
-
-					if(
-						e.css('box-sizing') === 'border-box' || 
-						e.css('-moz-box-sizing') === 'border-box' || 
-						e.css('-webkit-box-sizing') === 'border-box'
-					){
-						dim.offset = e.outerHeight() - e.innerHeight();
-					}
-
-					if(hCheck && (dim.content < opt.content || dim.outer != opt.outer)) {
-						e.height(0);
-					}
-
-					dim.h = Math.max(range.min, Math.min(e.prop('scrollHeight'), range.max))+dim.offset;
-
-					e
-						.css('overflow-y', e.prop('scrollHeight') > dim.h ? 'auto' : 'hidden')
-						.height(dim.h)
-						.data('rah_agwt_opt', $.extend(opt, dim));
 				};
 
 				return this.each(function() {
@@ -134,12 +135,12 @@ EOF;
 							'box-sizing' : 'border-box',
 							'-moz-box-sizing' : 'border-box'
 						})
-						.bind('keyup focus input blur', ResizeTextarea);
+						.bind('keyup focus input blur', methods.resize);
 
-					ResizeTextarea(this);
+					methods.resize(this);
 
 					$(window).resize(function() {
-						ResizeTextarea(obj);
+						methods.resize(obj);
 					});
 				});
 			};
