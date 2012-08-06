@@ -6,7 +6,7 @@ h2. Requirements
 
 p. Rah_expanding's minimum requirements:
 
-* Textpattern v4.4.0 and newer.
+* Textpattern v4.4.1 and newer.
 * PHP 5.2 and newer.
 
 h2. Supported web browsers
