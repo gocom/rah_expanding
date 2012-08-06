@@ -176,7 +176,10 @@ EOF;
 						methods.copyStyles();
 						$('body').append(opt.mirror);
 						textarea.on('input keyup blur focus resize rah_expanding_resize', methods.resize);
-						$(window).resize(methods.resize);
+						$(window).resize(function(){
+							methods.copyStyles();
+							methods.resize();
+						});
 						methods.resize();
 					});
 				};
