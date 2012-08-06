@@ -165,13 +165,15 @@ EOF;
 								setTimeout(function () {
 									opt.active = false;
 								}, 1);
+							},
+							copyStyles : function() {
+								$.each(copyStyle, function(key, value) {
+									opt.mirror.css(value, textarea.css(value));
+								});
 							}
 						};
 
-						$.each(copyStyle, function(key, value) {
-							opt.mirror.css(value, textarea.css(value));
-						});
-
+						methods.copyStyles();
 						$('body').append(opt.mirror);
 						textarea.on('input keyup blur focus resize rah_expanding_resize', methods.resize);
 						$(window).resize(methods.resize);
