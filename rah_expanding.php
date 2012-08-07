@@ -92,7 +92,8 @@ EOF;
 						'line-height',
 						'tab-size',
 						'text-align',
-						'text-rendering'
+						'text-rendering',
+						'zoom'
 					];
 
 					return this.each(function () {
