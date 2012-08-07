@@ -174,13 +174,21 @@ EOF;
 								$.each(['rows', 'cols', 'name', 'class'], function(key, value) {
 									opt.mirror.attr(value, textarea.attr(value));
 								});
+							},
+							normalize : function() {
+								$.each(copyStyle, function(key, value) {
+									textarea.css(value, '');
+									textarea.css(value, textarea.css(value));
+								});
 							}
 						};
 
+						methods.normalize();
 						methods.copyStyles();
 						$('body').append(opt.mirror);
 						textarea.bind('input keyup blur focus resize rah_expanding_resize', methods.resize);
 						$(window).bind('orientationchange resize', function(){
+							methods.normalize();
 							methods.copyStyles();
 							methods.resize();
 						});
