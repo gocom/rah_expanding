@@ -171,7 +171,7 @@ EOF;
 									opt.mirror.css(value, textarea.css(value));
 								});
 
-								$.each(['rows', 'cols', 'name', 'class'], function(key, value) {
+								$.each(['rows', 'cols'], function(key, value) {
 									opt.mirror.attr(value, textarea.attr(value));
 								});
 							},
