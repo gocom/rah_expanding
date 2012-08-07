@@ -29,7 +29,7 @@ class rah_expanding {
 	}
 
 	/**
-	 * Adds the required scripts to the <head>
+	 * Initializes the JavaScript
 	 */
 
 	public function initialize() {
@@ -44,7 +44,7 @@ EOF;
 	}
 
 	/**
- 	 * Stores the TextAreaExpander jQuery plugin
+ 	 * The resizer JavaScript
  	 */
 
 	public function jquery() {
