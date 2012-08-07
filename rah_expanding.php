@@ -170,6 +170,10 @@ EOF;
 								$.each(copyStyle, function(key, value) {
 									opt.mirror.css(value, textarea.css(value));
 								});
+
+								$.each(['rows', 'cols', 'name', 'class'], function(key, value) {
+									opt.mirror.attr(value, textarea.attr(value));
+								});
 							}
 						};
 
