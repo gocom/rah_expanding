@@ -148,7 +148,7 @@ EOF;
 									.val(textarea.val())
 									.css({
 										'overflow-y' : textarea.css('overflow-y'),
-										'width' : textarea.css('width'),
+										'width' : textarea.css('width')
 									})
 									.scrollTop(0)
 									.scrollTop(99999)
