@@ -1,7 +1,7 @@
 <manifest>
 
 	<name>rah_expanding</name>
-	<description>Expanding textareas for Textpattern's admin-side</description>
+	<description>Expanding admin-side textareas</description>
 
 	<version>0.6</version>
 	<type>3</type>
@@ -10,7 +10,7 @@
 	<author_uri>http://rahforum.biz</author_uri>
 
 	<order>5</order>
-	<flags>3</flags>
+	<flags>0</flags>
 
 	<help file="./README.textile" />
 
