@@ -88,7 +88,7 @@ p. Along the years rah_expanding has used and found help from few open source pr
 
 h2. Changelog
 
-h3. Version 0.7 - upcoming
+h3. Version 1.0 - upcoming
 
 * Changed: now affects all admin-side textareas by default.
 * Removed: Dropped preferences panel and extra options. Slims the installation significantly.
