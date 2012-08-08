@@ -18,7 +18,7 @@ p. Rah_expanding is compatible with the following web browsers:
 * Firefox 12 and newer.
 * Internet Explorer 9 and newer.
 * Safari 5.1 and newer.
-* Chrome 9 and newer.
+* Chrome 14 and newer.
 * Opera 12 and newer.
 
 p. Browsers that outright miss required features will gracefully fallback to normal textareas with visible scrollbars.
