@@ -1,5 +1,7 @@
 h1. rah_expanding
 
+p. "Project page":http://rahforum.biz/plugins/rah_autogrowing_textarea | "Twitter":http://twitter.com/gocom | "GitHub":https://github.com/gocom/rah_expanding | "Support forum":http://forum.textpattern.com/viewtopic.php?id=27646 | "Donate":http://rahforum.biz/donate/rah_expanding
+
 p. Automatically expanding textareas for "Textpattern CMS'":http://textpattern.com admin-side interfaces near you. With the plugin textarea elements will grow with user's input. While the user types, the field's height will increase to fit the content.
 
 h2. Requirements
