@@ -8,7 +8,7 @@
  * @license GNU GPLv2
  * @link http://rahforum.biz/plugins/rah_expanding
  * 
- * Copyright (C) 2008 Jukka Svahn <http://rahforum.biz>
+ * Copyright (C) 2012 Jukka Svahn <http://rahforum.biz>
  * Licensed under GNU Genral Public License version 2
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -51,7 +51,7 @@ EOF;
 
 		$js = <<<EOF
 			/**
-			 * Forked from Autosize project written by Jack Moore:
+			 * Forked from Jack Moore's Autosize project.
 			 *
 			 * Autosize 1.10 - jQuery plugin for textareas
 			 * by Jack Moore
