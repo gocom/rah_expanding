@@ -6,7 +6,7 @@
  * @author Jukka Svahn
  * @date 2008-
  * @license GNU GPLv2
- * @link http://rahforum.biz/plugins/rah_autogrowing_textarea
+ * @link http://rahforum.biz/plugins/rah_expanding
  * 
  * Copyright (C) 2008 Jukka Svahn <http://rahforum.biz>
  * Licensed under GNU Genral Public License version 2
