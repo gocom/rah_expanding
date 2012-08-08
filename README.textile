@@ -88,12 +88,12 @@ p. Along the years rah_expanding has used and found help from few open source pr
 
 h2. Changelog
 
-h3. Version 1.0 - upcoming
+h3. Version 1.0 - 2012/08/08
 
-* Changed: now affects all admin-side textareas by default.
+* Changed: Now affects all admin-side textareas by default.
 * Removed: Dropped preferences panel and extra options. Slims the installation significantly.
-* Replaced Chrys Bader's Auto-grown Textarea JavaScript solution with a fork of "Jack Moore's":http://www.jacklmoore.com/ "Autoresize":https://github.com/jackmoore/autosize.
-* Dropped support for IE6, IE7, IE8, Safari <5.1, Chrome <9, Firefox <12 and Opera <12.
+* Replaced Chrys Bader's Auto Grown Textarea JavaScript solution with a fork of "Jack Moore's":http://www.jacklmoore.com/ "Autoresize":https://github.com/jackmoore/autosize.
+* Dropped support for IE6, IE7, IE8, Safari <5.1, Chrome <14, Firefox <12 and Opera <12.
 * Dropped PHP4 compatibility. Now requires PHP v5.2 or newer.
 * Is now compatible with Textpattern v4.5.0.
 * Rebranded the project as rah_expanding.
