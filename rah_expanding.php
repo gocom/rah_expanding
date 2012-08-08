@@ -183,9 +183,7 @@ EOF;
 						methods.copyStyles();
 						$('body').append(opt.mirror);
 						textarea.bind('input keyup blur focus resize rah_expanding_resize', methods.resize);
-						$(window).bind('orientationchange resize', function(){
-							methods.resize();
-						});
+						$(window).bind('orientationchange resize', methods.resize);
 						methods.resize();
 					});
 				};
