@@ -77,10 +77,6 @@ bc. $('textarea').trigger('rah_expanding_resize');
 
 p. The above would update each textarea's height.
 
-h2. Caveats and platform specific bugs
-
-p. There are some caveats and issues that affect the plugin's field resizing. These issues are caused by platform specific inconsistencies and behavior.
-
 h2. Thanks to
 
 p. Along the years rah_expanding has used and found help from few open source project and resources.
