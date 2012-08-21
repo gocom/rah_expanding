@@ -91,6 +91,7 @@ h2. Changelog
 h3. Version 1.1 - upcoming
 
 * Cleaned up the code.
+* Changed: Text flowing workaround for Chrome. Tries to improve the text wrapping of the initial textarea contents.
 
 h3. Version 1.0 - 2012/08/08
 
