@@ -180,8 +180,8 @@ EOF;
 
 						methods.copyStyles();
 						$('body').append(opt.mirror);
-						textarea.bind('input keyup blur focus resize rah_expanding_resize', methods.resize);
-						$(window).bind('orientationchange resize', methods.resize);
+						textarea.on('input keyup blur focus resize rah_expanding_resize', methods.resize);
+						$(window).on('orientationchange resize', methods.resize);
 						textarea.text(textarea.text());
 						methods.resize();
 					});
