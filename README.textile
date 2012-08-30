@@ -88,7 +88,7 @@ p. Along the years rah_expanding has used and found help from few open source pr
 
 h2. Changelog
 
-h3. Version 1.1 - upcoming
+h3. Version 1.1 - 2012/08/30
 
 * Fixed: Text flowing workaround for Chrome. Tries to improve the text wrapping of the initial textarea contents.
 * Changed: Replaced jQuery.bind method with jQuery.on.
