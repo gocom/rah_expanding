@@ -21,7 +21,7 @@ p. Rah_expanding is compatible with the following web browsers:
 * Chrome 14 and newer.
 * Opera 12 and newer.
 
-p. Browsers that outright miss required features will gracefully fallback to normal textareas with visible scrollbars.
+p. Browsers that outright miss required features will gracefully fall back to normal textareas with visible scrollbars.
 
 h2. Installing
 
