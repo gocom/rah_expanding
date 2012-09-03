@@ -2,7 +2,7 @@ h1. rah_expanding
 
 p. "Project page":http://rahforum.biz/plugins/rah_expanding | "Twitter":http://twitter.com/gocom | "GitHub":https://github.com/gocom/rah_expanding | "Support forum":http://forum.textpattern.com/viewtopic.php?id=27646 | "Donate":http://rahforum.biz/donate/rah_expanding
 
-p. Rah_expanding brings dynamically expanding textareas to "Textpattern CMS'":http://textpattern.com admin-side interfaces near you. With the plugin textarea elements will grow with a user's input. While the user types, the field's height will increase to fit the content.
+p. Rah_expanding brings dynamically expanding textareas to "Textpattern CMS'":http://textpattern.com admin-side interfaces. With the plugin installed, textarea elements will grow with a user's input. While the user types, the field's height will increase to fit the content.
 
 h2. Requirements
 
@@ -87,6 +87,10 @@ p. Along the years rah_expanding has used and found help from few open source pr
 * "Autoresize":https://github.com/jackmoore/autosize by Jack Moore.
 
 h2. Changelog
+
+h3. Version 1.2 - 2012/09/03
+
+* Removed: Text flowing workaround for Chrome. It assumably has its set of side-effects.
 
 h3. Version 1.1 - 2012/08/30
 
