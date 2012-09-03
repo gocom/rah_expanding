@@ -88,9 +88,9 @@ p. Along the years rah_expanding has used and found help from few open source pr
 
 h2. Changelog
 
-h3. Version 1.2 - upcoming
+h3. Version 1.2 - 2012/09/03
 
-* Updated: Text flowing workaround for Chrome. It assumably had its set of side-effects.
+* Fixed: Text flowing workaround for Chrome. It assumably had its set of side-effects.
 
 h3. Version 1.1 - 2012/08/30
 
