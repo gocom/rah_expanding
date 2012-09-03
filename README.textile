@@ -90,7 +90,7 @@ h2. Changelog
 
 h3. Version 1.2 - 2012/09/03
 
-* Removed: Text flowing workaround for Chrome. It assumably has its set of side-effects.
+* Updated: Text flowing workaround for Chrome. It assumably had its set of side-effects.
 
 h3. Version 1.1 - 2012/08/30
 
