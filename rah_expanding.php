@@ -3,35 +3,40 @@
 /**
  * rah_expanding plugin for Textpattern CMS.
  *
- * @author Jukka Svahn
- * @date 2008-
+ * @author  Jukka Svahn
+ * @date    2008-
  * @license GNU GPLv2
- * @link http://rahforum.biz/plugins/rah_expanding
+ * @link    http://rahforum.biz/plugins/rah_expanding
  * 
- * Copyright (C) 2012 Jukka Svahn <http://rahforum.biz>
+ * Copyright (C) 2012 Jukka Svahn http://rahforum.biz
  * Licensed under GNU Genral Public License version 2
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
 
 	new rah_expanding();
 
-class rah_expanding {
+/**
+ * The plugin class.
+ */
 
+class rah_expanding
+{
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 
-	public function __construct() {
+	public function __construct()
+	{
 		register_callback(array($this, 'jquery'), 'admin_side', 'head_end');
 		register_callback(array($this, 'initialize'), 'admin_side', 'head_end');
 	}
 
 	/**
-	 * Initializes the JavaScript
+	 * Initializes the JavaScript.
 	 */
 
-	public function initialize() {
-
+	public function initialize()
+	{
 		$js = <<<EOF
 			$(document).ready(function(){
 				$('textarea:not(.rah_expanding_disable)').rah_expanding();
@@ -42,11 +47,11 @@ EOF;
 	}
 
 	/**
- 	 * The resizer JavaScript
+ 	 * The resizer JavaScript.
  	 */
 
-	public function jquery() {
-
+	public function jquery()
+	{
 		$js = <<<EOF
 			/**
 			 * Forked from Jack Moore's Autosize project.
@@ -63,18 +68,20 @@ EOF;
 
 				var test = $('<textarea/>').attr('oninput', 'return').css('line-height', '99px');
 
-				if(
+				if (
 					$.isFunction(test.prop('oninput')) === false ||
 					test.css('line-height') !== '99px'
-				) {
-					$.fn.rah_expanding = function () {
+				)
+				{
+					$.fn.rah_expanding = function ()
+					{
 						return this;
 					};
 					return;
 				}
 
-				$.fn.rah_expanding = function() {
-
+				$.fn.rah_expanding = function ()
+				{
 					var copy = '<textarea tabindex="-1" style="position:absolute; top:-9999px; left:-9999px; right:auto; bottom:auto; -moz-box-sizing:content-box; -webkit-box-sizing:content-box; box-sizing:content-box; word-wrap:break-word; height:0 !important; min-height:0 !important; min-width:0 !important; overflow:hidden">',
 
 					copyStyle = [
@@ -94,15 +101,17 @@ EOF;
 						'zoom'
 					];
 
-					return this.each(function () {
-
+					return this.each(function ()
+					{
 						var textarea = $(this);
 
-						if(textarea.data('rah_expanding_mirror') || textarea.data('rah_expanding_is_mirror')) {
+						if (textarea.data('rah_expanding_mirror') || textarea.data('rah_expanding_is_mirror'))
+						{
 							return;
 						}
 
-						var opt = {
+						var opt =
+						{
 							min : textarea.height(),
 							max : parseInt(textarea.css('max-height'), 10),
 							offset : 0,
@@ -110,33 +119,39 @@ EOF;
 							active : false
 						};
 
-						if(!opt.max || opt.max < 0 || opt.max > 99999) {
+						if (!opt.max || opt.max < 0 || opt.max > 99999)
+						{
 							opt.max = 99999;
 						}
 
-						if(opt.max <= opt.min) {
+						if (opt.max <= opt.min)
+						{
 							return;
 						}
 
-						if(
+						if (
 							textarea.css('box-sizing') === 'border-box' || 
 							textarea.css('-moz-box-sizing') === 'border-box'
-						) {
+						)
+						{
 							opt.offset = textarea.outerHeight() - textarea.height();
 						}
 
-						textarea.data('rah_expanding_mirror', opt.mirror).css({
-							'overflow' : 'hidden',
+						textarea.data('rah_expanding_mirror', opt.mirror).css(
+						{
+							'overflow'   : 'hidden',
 							'overflow-x' : 'hidden',
 							'overflow-y' : 'hidden',
-							'word-wrap' : 'break-word',
-							'resize' : 'none'
+							'word-wrap'  : 'break-word',
+							'resize'     : 'none'
 						});
 
-						var methods = {
-							resize : function() {
-
-								if(opt.active) {
+						var methods =
+						{
+							resize : function ()
+							{
+								if (opt.active)
+								{
 									return;
 								}
 
@@ -165,14 +180,17 @@ EOF;
 									opt.active = false;
 								}, 1);
 							},
-							copyStyles : function() {
-								$.each(copyStyle, function(key, value) {
+							copyStyles : function ()
+							{
+								$.each(copyStyle, function (key, value)
+								{
 									var rule = textarea.css(value);
 									opt.mirror.css(value, rule);
 									textarea.css(value, rule);
 								});
 
-								$.each(['rows', 'cols'], function(key, value) {
+								$.each(['rows', 'cols'], function (key, value)
+								{
 									opt.mirror.attr(value, textarea.attr(value));
 								});
 							}
