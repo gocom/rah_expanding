@@ -81,7 +81,7 @@ p. The above would update each textarea's height.
 
 h2. Thanks to
 
-p. Along the years rah_expanding has used and found help from few open source project and resources.
+p. Along the years rah_expanding has used and found help from few open source projects and resources.
 
 * "Auto Growing Textarea":https://github.com/akaihola/jquery-autogrow by Chrys Bader.
 * "Autoresize":https://github.com/jackmoore/autosize by Jack Moore.
