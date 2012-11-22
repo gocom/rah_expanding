@@ -36,7 +36,7 @@ p. Admin-side textareas are now armed with the plugin's functionality and should
 
 h2. For developers
 
-p. Rah_expanding gives some additional tools for developers to play with. The plugin allows admin-side themes and plugins to set rules for the dynamic expanding textareas. Themes have the ability to limit the fields dimensions or disable the plugin on a field basis. All this is doable with some basic, generic CSS rules.
+p. Rah_expanding gives some additional tools for developers to play with. The plugin allows admin-side themes and plugins to set rules for the dynamic expanding textareas. Themes have the ability to limit the field's dimensions or disable the plugin on a field basis. All this is doable with some basic styling.
 
 h3. CSS and field sizes
 
@@ -46,12 +46,13 @@ p. A field's maximum height that limits the field's expanding, can be set with a
 
 p. Consider the following CSS:
 
-bc. textarea#abc_fieldName {
-	max-height: 5em;
+bc. textarea#abc_field
+{
 	height: 1em;
+	max-height: 5em;
 }
 
-p. With the above, the textarea with the ID @abc_fieldName@ will not get any smaller than @1em@ or bigger than @5em@.
+p. With the above, the textarea with the ID @abc_field@ will not get any smaller than @1em@ or bigger than @5em@.
 
 h3. Disabling for a field
 
@@ -65,7 +66,7 @@ p. A field's expanding can also be disabled by setting the element's CSS propert
 
 h3. Attaching to a textarea
 
-p. By default the plugin works for textareas present on initial page load. If the DOM is modified after that and a new textarea is added, the the plugin needs to be attached to those element to take advantage of the functionality. Rah_expanding sports a jQuery plugin interface, and introduces a new method named @rah_expanding@.
+p. By default the plugin works for textareas present on initial page load. If the DOM is modified after that and a new textarea is added, the the plugin needs to be attached to those element to take advantage of the functionality. Rah_expanding sports a familiar jQuery interface, and introduces a method named @rah_expanding@.
 
 bc. $('textarea').rah_expanding();
 
