@@ -32,7 +32,8 @@ class rah_expanding
 	public function initialize()
 	{
 		$js = <<<EOF
-			$(document).ready(function(){
+			$(document).ready(function ()
+			{
 				$('textarea:not(.rah_expanding_disable)').rah_expanding();
 			});
 EOF;
@@ -58,8 +59,8 @@ EOF;
 			 * license: www.opensource.org/licenses/mit-license.php
 			 */
 
-			(function($) {
-
+			(function($)
+			{
 				var test = $('<textarea/>').attr('oninput', 'return').css('line-height', '99px');
 
 				if (
