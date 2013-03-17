@@ -13,12 +13,6 @@
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-	new rah_expanding();
-
-/**
- * The plugin class.
- */
-
 class rah_expanding
 {
 	/**
@@ -214,3 +208,5 @@ EOF;
 		echo script_js($js);
 	}
 }
+
+new rah_expanding();
