@@ -59,7 +59,7 @@ EOF;
 			 * license: www.opensource.org/licenses/mit-license.php
 			 */
 
-			(function($)
+			(function ($)
 			{
 				var test = $('<textarea/>').attr('oninput', 'return').css('line-height', '99px');
 
