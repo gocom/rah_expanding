@@ -1,15 +1,14 @@
 <?php
 
 /**
- * rah_expanding plugin for Textpattern CMS.
+ * Rah_expanding plugin for Textpattern CMS.
  *
  * @author  Jukka Svahn
- * @date    2008-
  * @license GNU GPLv2
  * @link    http://rahforum.biz/plugins/rah_expanding
  *
  * Copyright (C) 2012 Jukka Svahn http://rahforum.biz
- * Licensed under GNU Genral Public License version 2
+ * Licensed under GNU General Public License version 2
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
 
