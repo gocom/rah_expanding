@@ -31,7 +31,7 @@ class rah_expanding
     public function initialize()
     {
         $js = <<<EOF
-            $(document).ready(function ()
+            $(function ()
             {
                 $('textarea:not(.rah_expanding_disable)').rah_expanding();
             });
