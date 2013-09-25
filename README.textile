@@ -1,19 +1,19 @@
 h1. rah_expanding
 
-p. "Project page":http://rahforum.biz/plugins/rah_expanding | "Packagist":https://packagist.org/packages/rah/rah_expanding | "Twitter":http://twitter.com/gocom | "GitHub":https://github.com/gocom/rah_expanding | "Support forum":http://forum.textpattern.com/viewtopic.php?id=27646 | "Donate":http://rahforum.biz/donate/rah_expanding
+"Project page":http://rahforum.biz/plugins/rah_expanding | "Packagist":https://packagist.org/packages/rah/rah_expanding | "Twitter":http://twitter.com/gocom | "GitHub":https://github.com/gocom/rah_expanding | "Support forum":http://forum.textpattern.com/viewtopic.php?id=27646 | "Donate":http://rahforum.biz/donate/rah_expanding
 
-p. Rah_expanding brings dynamically expanding textareas to "Textpattern CMS'":http://textpattern.com admin-side interfaces. With the plugin installed, textarea elements will grow with a user's input. While the user types, the field's height will increase to fit the content.
+Rah_expanding brings dynamically expanding textareas to "Textpattern CMS'":http://textpattern.com admin-side interfaces. With the plugin installed, textarea elements will grow with a user's input. While the user types, the field's height will increase to fit the content.
 
 h2. Requirements
 
-p. Rah_expanding's minimum requirements:
+Rah_expanding's minimum requirements:
 
 * Textpattern 4.5.0 or newer.
 * PHP 5.2 or newer.
 
 h2. Supported web browsers
 
-p. Rah_expanding is compatible with the following web browsers:
+Rah_expanding is compatible with the following web browsers:
 
 * Firefox 12 and newer.
 * Internet Explorer 9 and newer.
@@ -21,30 +21,30 @@ p. Rah_expanding is compatible with the following web browsers:
 * Chrome 14 and newer.
 * Opera 12 and newer.
 
-p. Browsers that outright miss required features will gracefully fall back to normal textareas with visible scrollbars.
+Browsers that outright miss required features will gracefully fall back to normal textareas with visible scrollbars.
 
 h2. Installing
 
-p. Rah_expanding's installation follows the standard plugin installation steps.
+Rah_expanding's installation follows the standard plugin installation steps.
 
 # Download the plugin installation code.
 # Copy and paste the installation code into the _Install plugin_ box of your Textpattern Plugin pane.
 # Run the automated setup.
 # After the setup is done, activate the plugin. Done.
 
-p. Admin-side textareas are now armed with the plugin's functionality and should expand with the content.
+Admin-side textareas are now armed with the plugin's functionality and should expand with the content.
 
 h2. For developers
 
-p. Rah_expanding gives some additional tools for developers to play with. The plugin allows admin-side themes and plugins to set rules for the dynamic expanding textareas. Themes have the ability to limit the field's dimensions or disable the plugin on a field basis. All this is doable with some basic styling.
+Rah_expanding gives some additional tools for developers to play with. The plugin allows admin-side themes and plugins to set rules for the dynamic expanding textareas. Themes have the ability to limit the field's dimensions or disable the plugin on a field basis. All this is doable with some basic styling.
 
 h3. CSS and field sizes
 
-p. A field's starting height is decided by a visual size set with CSS, or the actual height of the element if no CSS height is specified. The starting size used in an empty state can be set with the "height":https://developer.mozilla.org/en/CSS/height CSS property.
+A field's starting height is decided by a visual size set with CSS, or the actual height of the element if no CSS height is specified. The starting size used in an empty state can be set with the "height":https://developer.mozilla.org/en/CSS/height CSS property.
 
-p. A field's maximum height that limits the field's expanding, can be set with a "max-height":https://developer.mozilla.org/en/CSS/max-height CSS property. If a textarea doesn't have max-height, it expands all the way up to 99999 pixels.
+A field's maximum height that limits the field's expanding, can be set with a "max-height":https://developer.mozilla.org/en/CSS/max-height CSS property. If a textarea doesn't have max-height, it expands all the way up to 99999 pixels.
 
-p. Consider the following CSS:
+Consider the following CSS:
 
 bc. textarea#abc_field
 {
@@ -52,37 +52,37 @@ bc. textarea#abc_field
 	max-height: 5em;
 }
 
-p. With the above, the textarea with the ID @abc_field@ will not get any smaller than @1em@ or bigger than @5em@.
+With the above, the textarea with the ID @abc_field@ will not get any smaller than @1em@ or bigger than @5em@.
 
 h3. Disabling for a field
 
-p. There are two ways to disable dynamic expanding on a field basis. Any textarea element that is armed with a class @rah_expanding_disable@ will not be affected by the plugin.
+There are two ways to disable dynamic expanding on a field basis. Any textarea element that is armed with a class @rah_expanding_disable@ will not be affected by the plugin.
 
 bc. <textarea class="rah_expanding_disable" name="foo" rows="10">
 	I don't grow.
 </textarea>
 
-p. A field's expanding can also be disabled by setting the element's CSS property @max-height@ to a equal or a lower value than the @height@.
+A field's expanding can also be disabled by setting the element's CSS property @max-height@ to a equal or a lower value than the @height@.
 
 h3. Attaching to a textarea
 
-p. By default the plugin works for textareas present on initial page load. If the DOM is modified after that and a new textarea is added, the the plugin needs to be attached to those element to take advantage of the functionality. Rah_expanding sports a familiar jQuery interface, and introduces a method named @rah_expanding@.
+By default the plugin works for textareas present on initial page load. If the DOM is modified after that and a new textarea is added, the the plugin needs to be attached to those element to take advantage of the functionality. Rah_expanding sports a familiar jQuery interface, and introduces a method named @rah_expanding@.
 
 bc. $('textarea').rah_expanding();
 
-p. The above would attach the resizing magic to any new textarea present on the page.
+The above would attach the resizing magic to any new textarea present on the page.
 
 h3. Triggering resize
 
-p. A textarea's resizing can be invoked manually incase the field's contents are changed programmatically. These type of automated changes are not otherwise tracked without the plugin being specifically informed about the change. Rah_expanding introduces a new custom event named @rah_expanding_resize@ which can be fired using jQuery's "trigger":http://api.jquery.com/trigger/ method.
+A textarea's resizing can be invoked manually incase the field's contents are changed programmatically. These type of automated changes are not otherwise tracked without the plugin being specifically informed about the change. Rah_expanding introduces a new custom event named @rah_expanding_resize@ which can be fired using jQuery's "trigger":http://api.jquery.com/trigger/ method.
 
 bc. $('textarea').trigger('rah_expanding_resize');
 
-p. The above would update each textarea's height.
+The above would update each textarea's height.
 
 h2. Thanks to
 
-p. Along the years rah_expanding has used and found help from few open source projects and resources.
+Along the years rah_expanding has used and found help from few open source projects and resources.
 
 * "Auto Growing Textarea":https://github.com/akaihola/jquery-autogrow by Chrys Bader.
 * "Autoresize":https://github.com/jackmoore/autosize by Jack Moore.
