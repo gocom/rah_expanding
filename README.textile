@@ -1,6 +1,6 @@
 h1. rah_expanding
 
-p. "Project page":http://rahforum.biz/plugins/rah_expanding | "Twitter":http://twitter.com/gocom | "GitHub":https://github.com/gocom/rah_expanding | "Support forum":http://forum.textpattern.com/viewtopic.php?id=27646 | "Donate":http://rahforum.biz/donate/rah_expanding
+p. "Project page":http://rahforum.biz/plugins/rah_expanding | "Packagist":https://packagist.org/packages/rah/rah_expanding | "Twitter":http://twitter.com/gocom | "GitHub":https://github.com/gocom/rah_expanding | "Support forum":http://forum.textpattern.com/viewtopic.php?id=27646 | "Donate":http://rahforum.biz/donate/rah_expanding
 
 p. Rah_expanding brings dynamically expanding textareas to "Textpattern CMS'":http://textpattern.com admin-side interfaces. With the plugin installed, textarea elements will grow with a user's input. While the user types, the field's height will increase to fit the content.
 
