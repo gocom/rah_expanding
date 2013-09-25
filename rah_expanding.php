@@ -12,7 +12,7 @@
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-class rah_expanding
+class Rah_Expanding
 {
     /**
      * Constructor.
@@ -209,4 +209,4 @@ EOF;
     }
 }
 
-new rah_expanding();
+new Rah_Expanding();
