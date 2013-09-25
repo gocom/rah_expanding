@@ -46,10 +46,9 @@ A field's maximum height that limits the field's expanding, can be set with a "m
 
 Consider the following CSS:
 
-bc. textarea#abc_field
-{
-	height: 1em;
-	max-height: 5em;
+bc. textarea#abc_field {
+    height: 1em;
+    max-height: 5em;
 }
 
 With the above, the textarea with the ID @abc_field@ will not get any smaller than @1em@ or bigger than @5em@.
@@ -58,9 +57,7 @@ h3. Disabling for a field
 
 There are two ways to disable dynamic expanding on a field basis. Any textarea element that is armed with a class @rah_expanding_disable@ will not be affected by the plugin.
 
-bc. <textarea class="rah_expanding_disable" name="foo" rows="10">
-	I don't grow.
-</textarea>
+bc. <textarea class="rah_expanding_disable" name="foo" rows="10">I don't grow.</textarea>
 
 A field's expanding can also be disabled by setting the element's CSS property @max-height@ to a equal or a lower value than the @height@.
 
